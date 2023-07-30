@@ -1,8 +1,8 @@
 namespace SystemERP
 {
-    public partial class Form1 : Form
+    public partial class FLogin : Form
     {
-        public Form1()
+        public FLogin()
         {
             InitializeComponent();
         }
