@@ -12,6 +12,7 @@ namespace SystemERP.Data
         public static string Connec()
         {
             string connect = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            return connect;
         }
     }
 }
