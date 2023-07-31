@@ -33,15 +33,28 @@ namespace SystemERP.Controller
                 Password= KeySha256.CalculateSHA256(pass)
             };
 
-            bool active = _userData.Login(user);
+            activeUser = _userData.Login(user);
 
-            if (active)
+            if (activeUser != null)
             {
-                activeUser = user;
-                return active;
+                return true;
             }
-            return active;
+            return false;
             
+        }
+
+        public bool CompareKey(string key)
+        {
+            if (key == "" || key == null)
+            {
+                return false;
+            }
+            string pass = KeySha256.CalculateSHA256(key);
+            if (key == activeUser.Password)
+            {
+                return true;
+            }            
+            return false;            
         }
  
         
