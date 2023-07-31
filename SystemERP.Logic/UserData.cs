@@ -12,28 +12,23 @@ namespace SystemERP.Data
 {
     public class UserData
     {
-        public bool Login(IUser user)
+        public IUser Login(IUser user)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
+                IUser result=null;
                 try
                 {
                     connection.Open();
-                    var mysql = @"SELECT name, password, id_role FROM users WHERE((state = 1) and ((name = @Name) and (password = @Password)))";                   
-                    var result = connection.Query(mysql, user);
-                    if (result.Count() > 0)
-                    {
-                        connection.Close();
-                        return true;
-                    }
+                    var mysql = @"SELECT * FROM users WHERE((state = 1) and ((name = @Name) and (password = @Password)))";                   
+                    result = connection.Query<User>(mysql, user).FirstOrDefault();                   
                     connection.Close();
-                    return false;
-
+                    return result;               
                 }
                 catch (Exception)
                 {
                     connection.Close();
-                    return false;
+                    return result;
                 }
             }
         }

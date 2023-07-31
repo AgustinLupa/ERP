@@ -41,16 +41,16 @@ namespace SystemERP.Data.Tests
             // Arrange
             IUser user = new User()
             {
-                Name = "franco",
-                Password = "asdasd",
+                Name = "admin",
+                Password = "asd",
             };
             UserData data = new UserData();
 
             // Act
-            bool actualResult = data.Login(user);
+            IUser actualResult = data.Login(user);
 
             // Assert
-            Assert.AreEqual(false, actualResult);
+            Assert.AreEqual(null, actualResult);
         }
 
         [TestMethod()]

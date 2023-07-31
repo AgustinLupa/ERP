@@ -1,3 +1,4 @@
+using Microsoft.Extensions.Configuration;
 using SystemERP.Controller;
 using SystemERP.View;
 
@@ -9,6 +10,7 @@ namespace SystemERP
         public FLogin()
         {
             InitializeComponent();
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -29,7 +31,7 @@ namespace SystemERP
             if (e.KeyChar == 13)
             {
                 txtPass.Focus();
-                e.Handled = true;
+               e.Handled = true;
             }
         }
 
