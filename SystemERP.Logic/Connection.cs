@@ -11,7 +11,7 @@ namespace SystemERP.Data
     {
         public static string Connec()
         {
-            string connect = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            string connect = "Server=localhost;Database=erp;user=root;password=;";
             return connect;
         }
     }

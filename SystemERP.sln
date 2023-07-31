@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SystemERP.Interface", "SystemERP.Interface\SystemERP.Interface.csproj", "{C2D43BA0-A0E5-484F-82AF-443EEE6FEF5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemERP.DataTests", "SystemERP.DataTests\SystemERP.DataTests.csproj", "{E259A63A-39C1-487F-8CF1-42CC4FC6C214}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{C2D43BA0-A0E5-484F-82AF-443EEE6FEF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2D43BA0-A0E5-484F-82AF-443EEE6FEF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2D43BA0-A0E5-484F-82AF-443EEE6FEF5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E259A63A-39C1-487F-8CF1-42CC4FC6C214}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E259A63A-39C1-487F-8CF1-42CC4FC6C214}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E259A63A-39C1-487F-8CF1-42CC4FC6C214}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E259A63A-39C1-487F-8CF1-42CC4FC6C214}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
