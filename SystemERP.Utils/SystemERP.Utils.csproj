@@ -6,9 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SystemERP.Logic\SystemERP.Data.csproj" />
-    <ProjectReference Include="..\SystemERP.Utils\SystemERP.Utils.csproj" />
-  </ItemGroup>
-
 </Project>
