@@ -6,8 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SystemERP.Interface\SystemERP.Interface.csproj" />
-  </ItemGroup>
-
 </Project>
