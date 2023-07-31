@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace SystemERP.Model
 {
-    public class Role
+    public class RoleXPermissions
     {
         public int Id { get; set; }
-        public string? Name { get; set; }
-        public int State { get; set; }
+        public int Id_Role { get; set; }
+        public int Id_Permissions { get; set; }
     }
 }
