@@ -19,12 +19,47 @@ namespace SystemERP.Data.Tests
             // Arrange
             Permissions permi = new Permissions()
             {
-                Description = "todos",                
+                Description = "todos",
             };
             PermissionsData data = new PermissionsData();
 
             // Act
             bool actualResult = data.CreatePermission(permi);
+
+            // Assert
+            Assert.AreEqual(true, actualResult);
+        }
+
+        [TestMethod()]
+        public void DeletePermissionTest()
+        {
+            // Arrange
+            Permissions permi = new Permissions()
+            {
+                Id = 1,
+                Description = "asdsadsad",
+            };
+            PermissionsData data = new PermissionsData();
+
+            // Act
+            bool actualResult = data.DeletePermission(permi);
+
+            // Assert
+            Assert.AreEqual(true, actualResult);
+        }
+
+        [TestMethod()]
+        public void UpdatePermissionTest()
+        {
+            Permissions permi = new Permissions()
+            {
+                Id = 2,
+                Description = "FacturacionStock",
+            };
+            PermissionsData data = new PermissionsData();
+
+            // Act
+            bool actualResult = data.UpdatePermission(permi);
 
             // Assert
             Assert.AreEqual(true, actualResult);
