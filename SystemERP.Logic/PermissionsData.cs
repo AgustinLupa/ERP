@@ -37,5 +37,83 @@ namespace SystemERP.Data
                 }
             }
         }
+
+        public bool DeletePermission(Permissions permissions)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"UPDATE permissions SET state = 0 WHERE id =@Id";
+                    var result = connection.Execute(mysql, permissions);
+                    if (result > 0)
+                    {
+                        connection.Close();
+                        return true;
+                    }
+                    connection.Close();
+                    return false;
+
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+        }
+
+        public bool UpdatePermission(Permissions permissions)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"UPDATE permissions SET state = @State, description = @Description WHERE id =@Id";
+                    var result = connection.Execute(mysql, permissions);
+                    if (result > 0)
+                    {
+                        connection.Close();
+                        return true;
+                    }
+                    connection.Close();
+                    return false;
+
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+        }
+
+        public bool ReRegister(Permissions permissions)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"UPDATE permissions SET state=1 where (name = @Name)";
+                    var result = connection.Execute(mysql, permissions);
+                    if (result > 0)
+                    {
+                        connection.Close();
+                        return true;
+                    }
+                    connection.Close();
+                    return false;
+
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+        }
     }
 }
