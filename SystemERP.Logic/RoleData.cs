@@ -21,6 +21,17 @@ namespace SystemERP.Data
                     connection.Open();
                     var mysql = @"SELECT * FROM roles";
                     var result = connection.Query<Role>(mysql).ToList();
+                    var mysql2 = @"SELECT * FROM rolesxpermissions";
+                    var result2 = connection.Query<RoleXPermissions>(mysql2).ToList();
+                    foreach (var item in result) {
+                        foreach (var item2 in result2)
+                        {
+                            if (item.Id == item2.Id_Role)
+                            {
+                                item.Permissions.Add(item2);
+                            }
+                        }
+                    }
                     connection.Close();
                     return result;
                 }

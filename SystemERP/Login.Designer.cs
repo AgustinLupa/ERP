@@ -111,6 +111,7 @@
             btnLogin.Text = "Iniciar";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
+            btnLogin.KeyPress += btnLogin_KeyPress;
             // 
             // label3
             // 

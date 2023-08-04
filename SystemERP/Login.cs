@@ -41,7 +41,6 @@ namespace SystemERP
 
                 if (result == DialogResult.Yes)
                 {
-                    
                     this.Close();
                 }
             }
@@ -53,6 +52,28 @@ namespace SystemERP
             {
                 btnLogin_Click(sender, e);
                 e.Handled = true;
+            }
+            if (e.KeyChar == 27)
+            {
+                DialogResult result = MessageBox.Show("¿Desea Salir?", "Cerrar sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
+            }
+        }
+
+        private void btnLogin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 27)
+            {
+                DialogResult result = MessageBox.Show("¿Desea Salir?", "Cerrar sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Close();
+                }
             }
         }
     }
