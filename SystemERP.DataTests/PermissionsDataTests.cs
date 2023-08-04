@@ -55,11 +55,45 @@ namespace SystemERP.Data.Tests
             {
                 Id = 2,
                 Description = "FacturacionStock",
+                State = 1
             };
             PermissionsData data = new PermissionsData();
 
             // Act
             bool actualResult = data.UpdatePermission(permi);
+
+            // Assert
+            Assert.AreEqual(true, actualResult);
+        }
+
+        [TestMethod()]
+        public void GetByIDTest()
+        {
+            // Arrange
+            int id = 1;
+            PermissionsData data = new PermissionsData();
+            Permissions permissions = new Permissions()
+            {
+                Id = id,
+            };
+            // Act
+            Permissions actualResult = data.GetByID(id);
+
+            // Assert
+            Assert.AreEqual(permissions.Id, actualResult.Id);
+        }
+
+        [TestMethod()]
+        public void ReRegisterTest()
+        {
+            // Arrange
+            PermissionsData data = new PermissionsData();
+            Permissions permissions = new Permissions()
+            {
+                Id = 1,
+            };
+            // Act
+            bool actualResult = data.ReRegister(permissions);
 
             // Assert
             Assert.AreEqual(true, actualResult);

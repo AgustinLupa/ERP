@@ -10,7 +10,7 @@ namespace SystemERP
         public FLogin()
         {
             InitializeComponent();
-            
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -18,20 +18,32 @@ namespace SystemERP
             bool result = userController.Login(txtUser.Text, txtPass.Text);
             if (result)
             {
-                Menu menu = new Menu();
+                txtUser.Text = "";
+                txtPass.Text = "";
+                Menu menu = new Menu(userController);
                 menu.Owner = this;
                 this.Hide();
                 menu.ShowDialog();
             }
         }
-       
+
 
         private void txtUser_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == 13)
             {
                 txtPass.Focus();
-               e.Handled = true;
+                e.Handled = true;
+            }
+            if (e.KeyChar == 27)
+            {
+                DialogResult result = MessageBox.Show("¿Desea Salir?", "Cerrar sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    
+                    this.Close();
+                }
             }
         }
 

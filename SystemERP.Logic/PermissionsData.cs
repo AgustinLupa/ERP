@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,7 +98,7 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"UPDATE permissions SET state=1 where (name = @Name)";
+                    var mysql = @"UPDATE permissions SET state=1 where (id = @Id)";
                     var result = connection.Execute(mysql, permissions);
                     if (result > 0)
                     {
@@ -112,6 +113,26 @@ namespace SystemERP.Data
                 {
                     connection.Close();
                     return false;
+                }
+            }
+        }
+
+        public Permissions GetByID(int Id)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"SELECT * FROM permissions where (id = @Id)";
+                    Permissions result = connection.QuerySingleOrDefault<Permissions>(mysql, new { Id });                   
+                    connection.Close();
+                    return result;
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return null;
                 }
             }
         }

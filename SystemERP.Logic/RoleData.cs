@@ -99,7 +99,7 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"UPDATE roles SET state=1 where (name = @Name)";
+                    var mysql = @"UPDATE roles SET state=1 where (id = @Id)";
                     var result = connection.Execute(mysql, role);
                     if (result > 0)
                     {

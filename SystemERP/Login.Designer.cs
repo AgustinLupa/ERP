@@ -54,11 +54,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlText;
-            label1.Location = new Point(252, 32);
+            label1.Location = new Point(237, 26);
             label1.Name = "label1";
-            label1.Size = new Size(78, 32);
+            label1.Size = new Size(94, 40);
             label1.TabIndex = 0;
             label1.Text = "Login";
             // 
@@ -81,7 +81,7 @@
             txtPass.BackColor = SystemColors.GradientActiveCaption;
             txtPass.BorderStyle = BorderStyle.FixedSingle;
             txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPass.Location = new Point(194, 163);
+            txtPass.Location = new Point(194, 177);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(207, 35);
@@ -103,9 +103,10 @@
             // btnLogin
             // 
             btnLogin.BackColor = SystemColors.GradientActiveCaption;
-            btnLogin.Location = new Point(252, 241);
+            btnLogin.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLogin.Location = new Point(237, 241);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(78, 33);
+            btnLogin.Size = new Size(133, 65);
             btnLogin.TabIndex = 3;
             btnLogin.Text = "Iniciar";
             btnLogin.UseVisualStyleBackColor = false;
@@ -114,20 +115,20 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             label3.Location = new Point(194, 128);
             label3.Name = "label3";
-            label3.Size = new Size(48, 21);
+            label3.Size = new Size(72, 32);
             label3.TabIndex = 2;
             label3.Text = "Clave";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(194, 37);
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(194, 25);
             label2.Name = "label2";
-            label2.Size = new Size(64, 21);
+            label2.Size = new Size(94, 32);
             label2.TabIndex = 0;
             label2.Text = "Usuario";
             // 

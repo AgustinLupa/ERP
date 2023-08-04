@@ -57,6 +57,8 @@ namespace SystemERP.Controller
             return false;            
         }
  
-        
+        public IUser GetUserActive() {
+            return activeUser;
+        }
     }
 }
