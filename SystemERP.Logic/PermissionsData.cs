@@ -89,5 +89,31 @@ namespace SystemERP.Data
                 }
             }
         }
+
+        public bool ReRegister(Permissions permissions)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"UPDATE permissions SET state=1 where (name = @Name)";
+                    var result = connection.Execute(mysql, permissions);
+                    if (result > 0)
+                    {
+                        connection.Close();
+                        return true;
+                    }
+                    connection.Close();
+                    return false;
+
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return false;
+                }
+            }
+        }
     }
 }
