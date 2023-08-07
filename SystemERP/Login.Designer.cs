@@ -33,10 +33,10 @@
             label1 = new Label();
             panel2 = new Panel();
             txtPass = new TextBox();
-            txtUser = new TextBox();
             btnLogin = new Button();
             label3 = new Label();
             label2 = new Label();
+            txtUser = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -65,8 +65,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(txtPass);
             panel2.Controls.Add(txtUser);
+            panel2.Controls.Add(txtPass);
             panel2.Controls.Add(btnLogin);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
@@ -78,6 +78,7 @@
             // 
             // txtPass
             // 
+            txtPass.AcceptsTab = true;
             txtPass.BackColor = SystemColors.GradientActiveCaption;
             txtPass.BorderStyle = BorderStyle.FixedSingle;
             txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
@@ -86,19 +87,9 @@
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(207, 35);
             txtPass.TabIndex = 2;
+            txtPass.UseSystemPasswordChar = true;
             txtPass.Enter += btnLogin_Click;
-            txtPass.KeyPress += txtPass_KeyPress;
-            // 
-            // txtUser
-            // 
-            txtUser.BackColor = SystemColors.GradientActiveCaption;
-            txtUser.BorderStyle = BorderStyle.FixedSingle;
-            txtUser.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtUser.Location = new Point(194, 77);
-            txtUser.Name = "txtUser";
-            txtUser.Size = new Size(207, 35);
-            txtUser.TabIndex = 1;
-            txtUser.KeyPress += txtUser_KeyPress;
+            txtPass.KeyDown += txtPass_KeyDown;
             // 
             // btnLogin
             // 
@@ -133,6 +124,18 @@
             label2.TabIndex = 0;
             label2.Text = "Usuario";
             // 
+            // txtUser
+            // 
+            txtUser.AcceptsTab = true;
+            txtUser.BackColor = SystemColors.GradientActiveCaption;
+            txtUser.BorderStyle = BorderStyle.FixedSingle;
+            txtUser.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtUser.Location = new Point(194, 70);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(207, 35);
+            txtUser.TabIndex = 1;
+            txtUser.KeyDown += txtUser_KeyDown;
+            // 
             // FLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -160,9 +163,9 @@
         private Label label1;
         private Panel panel2;
         private TextBox txtPass;
-        private TextBox txtUser;
         private Button btnLogin;
         private Label label3;
         private Label label2;
+        private TextBox txtUser;
     }
 }

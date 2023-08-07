@@ -8,18 +8,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemERP.Controller;
-using SystemERP.Interface;
+using SystemERP.Model;
 
 namespace SystemERP.View
 {
     public partial class Menu : Form
     {
         public UserController userControl;
+        public RoleController roleController;
+
         public Menu(UserController user)
         {
             userControl = user;
             InitializeComponent();
-            IUser userActive = userControl.GetUserActive();
+            roleController = new RoleController();
+            userControl.SetRoleActive(roleController.GetById(userControl.GetUserActive().Id_Role));
+            User userActive = userControl.GetUserActive();
+            
+
+            if (userActive.Role.Name == "admin")
+            {
+                btnTurnOver.Visible = true;
+            }
+
         }
 
         private void Menu_KeyPress(object sender, KeyPressEventArgs e)

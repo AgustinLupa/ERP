@@ -12,7 +12,8 @@ namespace SystemERP.Model
         public int Id_Role { get; set; }
         public int Id_Permissions { get; set; }
         public int Add { get; set; }
-        public int Delete { get; set; }
+        public int Remove { get; set; }
         public int Edit { get; set; }
+        public Permissions Permission { get; set; }
     }
 }

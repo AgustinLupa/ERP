@@ -5,18 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemERP.Interface;
 using SystemERP.Model;
 
 namespace SystemERP.Data
 {
     public class UserData
     {
-        public IUser Login(IUser user)
+        public User Login(User user)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
-                IUser result=null;
+                User result=null;
                 try
                 {
                     connection.Open();
@@ -33,7 +32,7 @@ namespace SystemERP.Data
             }
         }
 
-        public bool Create(IUser user)
+        public bool Create(User user)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
@@ -59,7 +58,7 @@ namespace SystemERP.Data
             }
         }
 
-        public bool Update(IUser user)
+        public bool Update(User user)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
@@ -85,7 +84,7 @@ namespace SystemERP.Data
             }
         }
 
-        public bool Delete(IUser user)
+        public bool Delete(User user)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
@@ -131,7 +130,7 @@ namespace SystemERP.Data
             }
         }
         
-        public bool ReRegister(IUser user)
+        public bool ReRegister(User user)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {

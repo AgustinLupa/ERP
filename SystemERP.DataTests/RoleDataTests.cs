@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemERP.Model;
-using SystemERP.Interface;
 
 namespace SystemERP.Data.Tests
 {
@@ -20,15 +19,11 @@ namespace SystemERP.Data.Tests
             RoleData data = new RoleData();
 
             // Act
-            int actualResult = data.GetAll().Count();
-            var result = new List<Role>();
-            foreach (var item in data.GetAll())
-            {
-                result.Add(new Role { Id = item.Id });
-            }
+            int actualResult = 3;
+            var result = data.GetAll().Count();
 
             // Assert
-            Assert.AreEqual(result.Count(), actualResult);
+            Assert.AreEqual(result, actualResult);
         }
 
         [TestMethod()]
@@ -41,10 +36,10 @@ namespace SystemERP.Data.Tests
                 Name = "Cajero",
             };
             // Act
-            bool actualResult = data.AddRole(role);
+            int actualResult = data.AddRole(role);
 
             // Assert
-            Assert.AreEqual(true, actualResult);
+            Assert.AreEqual(4, actualResult);
         }
 
         [TestMethod()]
@@ -68,7 +63,7 @@ namespace SystemERP.Data.Tests
             // Arrange
             Role role = new Role()
             {
-                Name="Cajero",
+                Name = "Cajero",
             };
             RoleData data = new RoleData();
 
@@ -77,6 +72,24 @@ namespace SystemERP.Data.Tests
 
             // Assert
             Assert.AreEqual(true, actualResult);
+        }
+
+        [TestMethod()]
+        public void GetByIdTest()
+        {
+            // Arrange
+            Role role = new Role()
+            {
+                Id= 2,
+                Name = "Cajero",
+            };
+            RoleData data = new RoleData();
+
+            // Act
+            Role actualResult = data.GetById(role.Id);
+
+            // Assert
+            Assert.AreEqual(role.Id, actualResult.Id);
         }
     }
 }

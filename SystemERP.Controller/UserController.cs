@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemERP.Data;
-using SystemERP.Interface;
 using SystemERP.Model;
 using SystemERP.Utils;
 
@@ -13,7 +12,7 @@ namespace SystemERP.Controller
     public class UserController
     {
         UserData _userData = new UserData();
-        IUser? activeUser;
+        User? activeUser;
 
         public bool Login(string name, string pass)
         {
@@ -27,7 +26,7 @@ namespace SystemERP.Controller
                 return false;
             }
 
-            IUser user = new User()
+            User user = new User()
             {
                 Name= name,
                 Password= KeySha256.CalculateSHA256(pass)
@@ -57,8 +56,13 @@ namespace SystemERP.Controller
             return false;            
         }
  
-        public IUser GetUserActive() {
+        public User GetUserActive() {
             return activeUser;
+        }
+        
+        public void SetRoleActive(Role role)
+        {
+            activeUser.Role = role;
         }
     }
 }

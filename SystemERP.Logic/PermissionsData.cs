@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemERP.Interface;
 using SystemERP.Model;
 
 namespace SystemERP.Data

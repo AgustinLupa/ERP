@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemERP.Interface;
 using SystemERP.Model;
 
 namespace SystemERP.Data.Tests
@@ -17,7 +16,7 @@ namespace SystemERP.Data.Tests
         public void CreateTest()
         {
             // Arrange
-            IUser user = new User()
+            User user = new User()
             {
                 Name = "pepito",
                 Password = "7a21faf44b0006e61eae5a50d337eca75b5b6f9c2d9da3c25ecbf5df6dcc0299",
@@ -39,7 +38,7 @@ namespace SystemERP.Data.Tests
         public void LoginTest1()
         {
             // Arrange
-            IUser user = new User()
+            User user = new User()
             {
                 Name = "admin",
                 Password = "asd",
@@ -47,7 +46,7 @@ namespace SystemERP.Data.Tests
             UserData data = new UserData();
 
             // Act
-            IUser actualResult = data.Login(user);
+            User actualResult = data.Login(user);
 
             // Assert
             Assert.AreEqual(null, actualResult);
@@ -57,10 +56,11 @@ namespace SystemERP.Data.Tests
         public void UpdateTest()
         {
             // Arrange
-            IUser user = new User()
+            User user = new User()
             {
-                Name = "asd",
-                Password = "asd",
+                Id=5,
+                Name = "Pepito",
+                Password = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
                 Id_Role = 3,
             };
             UserData data = new UserData();
@@ -69,14 +69,14 @@ namespace SystemERP.Data.Tests
             bool actualResult = data.Update(user);
 
             // Assert
-            Assert.AreEqual(false, actualResult);
+            Assert.AreEqual(true, actualResult);
         }
 
         [TestMethod()]
         public void DeleteTest()
         {
             // Arrange
-            IUser user = new User()
+            User user = new User()
             {
                 Id = 5,
             };
@@ -111,7 +111,7 @@ namespace SystemERP.Data.Tests
         public void ReRegisterTest()
         {
             // Arrange
-            IUser user = new User()
+            User user = new User()
             {
                 Id = 5,
             };

@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SystemERP.Interface;
 using SystemERP.Model;
 
 namespace SystemERP.Data
@@ -19,48 +18,68 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"SELECT * FROM roles";
-                    var result = connection.Query<Role>(mysql).ToList();
-                    var mysql2 = @"SELECT * FROM rolesxpermissions";
-                    var result2 = connection.Query<RoleXPermissions>(mysql2).ToList();
-                    foreach (var item in result) {
-                        foreach (var item2 in result2)
+                    var query = @"
+                    SELECT r.id, r.name, r.state,
+                    rp.id, rp.id_role, rp.id_permissions, rp.add, rp.remove, rp.edit,
+                    p.id, p.description, p.state
+                    FROM roles r
+                    JOIN rolesxpermissions rp ON r.id = rp.id_role
+                    JOIN permissions p ON rp.id_permissions = p.id";
+                    var roleDictionary = new Dictionary<int, Role>();
+                    connection.Query<Role, RoleXPermissions, Permissions, Role>(
+                        query,
+                        (role, rolePermissions, permissions) =>
                         {
-                            if (item.Id == item2.Id_Role)
+                            if (!roleDictionary.TryGetValue(role.Id, out var roleEntry))
                             {
-                                item.Permissions.Add(item2);
+                                roleEntry = role;
+                                roleEntry.RolePermissions = new List<RoleXPermissions>();
+                                roleDictionary.Add(roleEntry.Id, roleEntry);
                             }
-                        }
-                    }
+
+                            rolePermissions.Permission = permissions;
+                            roleEntry.RolePermissions.Add(rolePermissions);
+                            return roleEntry;
+                        },
+                        splitOn: "Id, Id, Id"
+                    );
                     connection.Close();
-                    return result;
+                    return roleDictionary.Values;
                 }
                 catch (Exception)
                 {
                     connection.Close();
-                    return null;
+                    List<Role> roles = new List<Role>();
+                    return roles;
                 }
-            }
+
+            }                  
+            
         }
 
-        public bool AddRole(Role role)
-        {
+        public int AddRole(Role role)
+        {            
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
                 try
                 {
                     connection.Open();
-                    var mysql = @"INSERT INTO roles(name) VALUES (@Name)";
-                    var result = connection.Execute(mysql, role);
+                    var insertQuery = @"
+                        INSERT INTO Role (name)
+                        VALUES (@Name);
+                        SELECT CAST(SCOPE_IDENTITY() as int)";
+
+                    int roleId = connection.QuerySingle<int>(insertQuery, role);
                     connection.Close();
-                    return true;
+                    return roleId;
                 }
                 catch (Exception)
                 {
                     connection.Close();
-                    return false;
+                    throw;
                 }
-            }
+                 
+            }            
         }
 
         public bool DeleteRole(Role role)
@@ -90,17 +109,43 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"SELECT * FROM roles where (state = 1)";
-                    var result = connection.Query<Role>(mysql).ToList();
+                    var query = @"
+                    SELECT r.id, r.name, r.state,
+                    rp.id, rp.id_role, rp.id_permissions, rp.add, rp.remove, rp.edit,
+                    p.id, p.description, p.state
+                    FROM roles r
+                    JOIN rolesxpermissions rp ON r.id = rp.id_role
+                    JOIN permissions p ON rp.id_permissions = p.id
+                    WHERE ((r.state = 1) AND (p.state = 1))";
+                    var roleDictionary = new Dictionary<int, Role>();
+                    connection.Query<Role, RoleXPermissions, Permissions, Role>(
+                        query,
+                        (role, rolePermissions, permissions) =>
+                        {
+                            if (!roleDictionary.TryGetValue(role.Id, out var roleEntry))
+                            {
+                                roleEntry = role;
+                                roleEntry.RolePermissions = new List<RoleXPermissions>();
+                                roleDictionary.Add(roleEntry.Id, roleEntry);
+                            }
+
+                            rolePermissions.Permission = permissions;
+                            roleEntry.RolePermissions.Add(rolePermissions);
+                            return roleEntry;
+                        },
+                        splitOn: "Id, Id, Id"
+                    );
                     connection.Close();
-                    return result;
+                    return roleDictionary.Values;
                 }
                 catch (Exception)
                 {
                     connection.Close();
-                    return null;
+                    List<Role> roles = new List<Role>();
+                    return roles;
                 }
-            }
+
+            }            
         }
 
         public bool ReRegister(Role role)
@@ -125,6 +170,52 @@ namespace SystemERP.Data
                 {
                     connection.Close();
                     return false;
+                }
+            }
+        }
+
+        public Role GetById(int id)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var query = @"
+                    SELECT r.id, r.name, r.state,
+                    rp.id, rp.id_role, rp.id_permissions, rp.add, rp.remove, rp.edit,
+                    p.id, p.description, p.state
+                    FROM roles r
+                    JOIN rolesxpermissions rp ON r.id = rp.id_role
+                    JOIN permissions p ON rp.id_permissions = p.id
+                    WHERE (r.id = @Id)";
+                    var roleDictionary = new Dictionary<int, Role>();
+                    connection.Query<Role, RoleXPermissions, Permissions, Role>(
+                        query,
+                        (role, rolePermissions, permissions) =>
+                        {
+                            if (!roleDictionary.TryGetValue(role.Id, out var roleEntry))
+                            {
+                                roleEntry = role;
+                                roleEntry.RolePermissions = new List<RoleXPermissions>();
+                                roleDictionary.Add(roleEntry.Id, roleEntry);
+                            }
+
+                            rolePermissions.Permission = permissions;
+                            roleEntry.RolePermissions.Add(rolePermissions);
+                            return roleEntry;
+                        },
+                        new { Id = id },
+                        splitOn: "Id, Id, Id"
+                    );
+                    connection.Close();
+                    return roleDictionary.Values.FirstOrDefault();
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    Role role = new Role();
+                    return role;
                 }
             }
         }
