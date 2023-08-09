@@ -14,13 +14,7 @@ namespace SystemERP.Controller
         public IEnumerable<Role> GetAll()
         {
             return data.GetAll();      
-        }
-
-        public Role GetById(int id)
-        {            
-            return data.GetById(id);
-        }
-
+        }       
         public int CreateRole(string name)
         {
             if(name == null || name == "") {
@@ -32,6 +26,29 @@ namespace SystemERP.Controller
             return data.AddRole(role);                        
         }
 
+        public bool DeleteRole(Role role)
+        {
+            return data.DeleteRole(role);
+        }
+
+        public IEnumerable<Role> GetActiveRole()
+        {
+            return data.GetActiveRole();
+        }
+
+        public bool ReRegisterRole(Role role)
+        {
+            return data.ReRegister(role);
+        }
+
+        public Role GetByID(int id)
+        {
+            if(id <= 0)
+            {
+                return null;
+            }
+            return data.GetById(id);
+        }
 
     }
 }

@@ -76,7 +76,7 @@ namespace SystemERP.Data
                 catch (Exception)
                 {
                     connection.Close();
-                    throw;
+                    return 0;
                 }
                  
             }            

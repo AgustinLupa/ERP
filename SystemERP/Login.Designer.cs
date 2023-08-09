@@ -32,11 +32,11 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
+            txtUser = new TextBox();
             txtPass = new TextBox();
             btnLogin = new Button();
             label3 = new Label();
             label2 = new Label();
-            txtUser = new TextBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -76,6 +76,18 @@
             panel2.Size = new Size(585, 375);
             panel2.TabIndex = 1;
             // 
+            // txtUser
+            // 
+            txtUser.AcceptsTab = true;
+            txtUser.BackColor = SystemColors.GradientActiveCaption;
+            txtUser.BorderStyle = BorderStyle.FixedSingle;
+            txtUser.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtUser.Location = new Point(194, 70);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(207, 35);
+            txtUser.TabIndex = 1;
+            txtUser.KeyDown += txtUser_KeyDown;
+            // 
             // txtPass
             // 
             txtPass.AcceptsTab = true;
@@ -89,7 +101,6 @@
             txtPass.TabIndex = 2;
             txtPass.UseSystemPasswordChar = true;
             txtPass.Enter += btnLogin_Click;
-            txtPass.KeyDown += txtPass_KeyDown;
             // 
             // btnLogin
             // 
@@ -102,7 +113,6 @@
             btnLogin.Text = "Iniciar";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
-            btnLogin.KeyPress += btnLogin_KeyPress;
             // 
             // label3
             // 
@@ -123,18 +133,6 @@
             label2.Size = new Size(94, 32);
             label2.TabIndex = 0;
             label2.Text = "Usuario";
-            // 
-            // txtUser
-            // 
-            txtUser.AcceptsTab = true;
-            txtUser.BackColor = SystemColors.GradientActiveCaption;
-            txtUser.BorderStyle = BorderStyle.FixedSingle;
-            txtUser.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtUser.Location = new Point(194, 70);
-            txtUser.Name = "txtUser";
-            txtUser.Size = new Size(207, 35);
-            txtUser.TabIndex = 1;
-            txtUser.KeyDown += txtUser_KeyDown;
             // 
             // FLogin
             // 

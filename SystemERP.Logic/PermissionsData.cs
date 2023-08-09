@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,28 +13,25 @@ namespace SystemERP.Data
 {
     public class PermissionsData
     {
-        public bool CreatePermission(Permissions permissions)
+        public int CreatePermission(Permissions permissions)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
-            {
+            {                
                 try
                 {
                     connection.Open();
-                    var mysql = @"INSERT INTO permissions(description) Values (@Description)";
-                    var result = connection.Execute(mysql, permissions);
-                    if (result > 0)
-                    {
-                        connection.Close();
-                        return true;
-                    }
+                    var mysql = @"INSERT INTO permissions(description) 
+                                  Values (@Description);
+                                  SELECT CAST(SCOPE_IDENTITY() as int)";
+                    var result = connection.QuerySingle<int>(mysql, permissions);                    
                     connection.Close();
-                    return false;
+                    return result;
 
                 }
                 catch (Exception)
                 {
                     connection.Close();
-                    return false;
+                    return 0;
                 }
             }
         }
