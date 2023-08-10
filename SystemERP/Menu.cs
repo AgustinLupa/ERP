@@ -22,9 +22,9 @@ namespace SystemERP.View
             userControl = user;
             InitializeComponent();
             roleController = new RoleController();
-            userControl.SetRoleActive(roleController.GetById(userControl.GetUserActive().Id_Role));
+            userControl.SetRoleActive(roleController.GetByID(userControl.GetUserActive().Id_Role));
             User userActive = userControl.GetUserActive();
-            
+
 
             if (userActive.Role.Name == "admin")
             {

@@ -32,8 +32,8 @@
             panel1 = new Panel();
             label1 = new Label();
             panel2 = new Panel();
-            txtUser = new TextBox();
             txtPass = new TextBox();
+            txtUser = new TextBox();
             btnLogin = new Button();
             label3 = new Label();
             label2 = new Label();
@@ -65,8 +65,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Transparent;
-            panel2.Controls.Add(txtUser);
             panel2.Controls.Add(txtPass);
+            panel2.Controls.Add(txtUser);
             panel2.Controls.Add(btnLogin);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(label2);
@@ -75,6 +75,21 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(585, 375);
             panel2.TabIndex = 1;
+            // 
+            // txtPass
+            // 
+            txtPass.AcceptsTab = true;
+            txtPass.BackColor = SystemColors.GradientActiveCaption;
+            txtPass.BorderStyle = BorderStyle.FixedSingle;
+            txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            txtPass.Location = new Point(194, 163);
+            txtPass.Name = "txtPass";
+            txtPass.PasswordChar = '*';
+            txtPass.Size = new Size(207, 35);
+            txtPass.TabIndex = 2;
+            txtPass.TabStop = false;
+            txtPass.UseSystemPasswordChar = true;
+            txtPass.KeyDown += txtPass_KeyDown;
             // 
             // txtUser
             // 
@@ -87,20 +102,6 @@
             txtUser.Size = new Size(207, 35);
             txtUser.TabIndex = 1;
             txtUser.KeyDown += txtUser_KeyDown;
-            // 
-            // txtPass
-            // 
-            txtPass.AcceptsTab = true;
-            txtPass.BackColor = SystemColors.GradientActiveCaption;
-            txtPass.BorderStyle = BorderStyle.FixedSingle;
-            txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPass.Location = new Point(194, 177);
-            txtPass.Name = "txtPass";
-            txtPass.PasswordChar = '*';
-            txtPass.Size = new Size(207, 35);
-            txtPass.TabIndex = 2;
-            txtPass.UseSystemPasswordChar = true;
-            txtPass.Enter += btnLogin_Click;
             // 
             // btnLogin
             // 
@@ -160,10 +161,10 @@
         private Panel panel1;
         private Label label1;
         private Panel panel2;
-        private TextBox txtPass;
         private Button btnLogin;
         private Label label3;
         private Label label2;
         private TextBox txtUser;
+        private TextBox txtPass;
     }
 }

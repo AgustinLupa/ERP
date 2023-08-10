@@ -23,10 +23,10 @@ namespace SystemERP.Data.Tests
             PermissionsData data = new PermissionsData();
 
             // Act
-            bool actualResult = data.CreatePermission(permi);
+            int actualResult = data.CreatePermission(permi);
 
             // Assert
-            Assert.AreEqual(true, actualResult);
+            Assert.AreEqual(2, actualResult);
         }
 
         [TestMethod()]

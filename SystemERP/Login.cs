@@ -25,8 +25,12 @@ namespace SystemERP
                 this.Hide();
                 menu.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Error de inicio de sesion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-       
+
         private void txtUser_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
@@ -34,9 +38,17 @@ namespace SystemERP
                 e.SuppressKeyPress = true;
                 e.Handled = true;
                 txtPass.Focus();
-
             }
         }
-        
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            {
+                e.SuppressKeyPress = true;
+                e.Handled = true;
+                btnLogin_Click(sender, e);
+            }
+        }
     }
 }

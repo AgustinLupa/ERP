@@ -107,7 +107,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Menu";
-            Text = "Menu";
+            Text = "f";
             KeyPress += Menu_KeyPress;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
