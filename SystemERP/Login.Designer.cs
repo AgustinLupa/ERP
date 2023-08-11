@@ -82,7 +82,7 @@
             txtPass.BackColor = SystemColors.GradientActiveCaption;
             txtPass.BorderStyle = BorderStyle.FixedSingle;
             txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPass.Location = new Point(194, 163);
+            txtPass.Location = new Point(194, 175);
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(207, 35);

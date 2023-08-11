@@ -36,7 +36,6 @@ namespace SystemERP.Data
                                 roleEntry.RolePermissions = new List<RoleXPermissions>();
                                 roleDictionary.Add(roleEntry.Id, roleEntry);
                             }
-
                             rolePermissions.Permission = permissions;
                             roleEntry.RolePermissions.Add(rolePermissions);
                             return roleEntry;
@@ -52,9 +51,7 @@ namespace SystemERP.Data
                     List<Role> roles = new List<Role>();
                     return roles;
                 }
-
-            }                  
-            
+            }                              
         }
 
         public int AddRole(Role role)

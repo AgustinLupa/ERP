@@ -34,6 +34,13 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             pMenu = new Panel();
+            btnProduct = new Button();
+            btnCaja = new Button();
+            btnSupplier = new Button();
+            btnEmployee = new Button();
+            btnSales = new Button();
+            btnBank = new Button();
+            btnUser = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -41,10 +48,18 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(btnUser);
+            panel1.Controls.Add(btnBank);
+            panel1.Controls.Add(btnSales);
+            panel1.Controls.Add(btnEmployee);
+            panel1.Controls.Add(btnSupplier);
+            panel1.Controls.Add(btnCaja);
+            panel1.Controls.Add(btnProduct);
             panel1.Controls.Add(btnTurnOver);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Left;
+            panel1.Font = new Font("Segoe UI Black", 9F, FontStyle.Bold, GraphicsUnit.Point);
             panel1.ForeColor = SystemColors.ControlText;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -59,7 +74,7 @@
             btnTurnOver.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnTurnOver.Image = (Image)resources.GetObject("btnTurnOver.Image");
             btnTurnOver.ImageAlign = ContentAlignment.MiddleLeft;
-            btnTurnOver.Location = new Point(3, 101);
+            btnTurnOver.Location = new Point(3, 74);
             btnTurnOver.Name = "btnTurnOver";
             btnTurnOver.Size = new Size(218, 49);
             btnTurnOver.TabIndex = 1;
@@ -72,7 +87,7 @@
             // 
             pictureBox1.BackgroundImage = Properties.Resources.proyecto;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(12, 12);
+            pictureBox1.Location = new Point(12, 20);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(43, 29);
             pictureBox1.TabIndex = 1;
@@ -90,11 +105,104 @@
             // 
             // pMenu
             // 
+            pMenu.BackColor = SystemColors.GradientInactiveCaption;
             pMenu.Dock = DockStyle.Fill;
             pMenu.Location = new Point(221, 0);
             pMenu.Name = "pMenu";
             pMenu.Size = new Size(693, 561);
             pMenu.TabIndex = 1;
+            // 
+            // btnProduct
+            // 
+            btnProduct.BackColor = SystemColors.Menu;
+            btnProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnProduct.Image = Properties.Resources.package1;
+            btnProduct.ImageAlign = ContentAlignment.MiddleLeft;
+            btnProduct.Location = new Point(3, 123);
+            btnProduct.Name = "btnProduct";
+            btnProduct.Size = new Size(218, 49);
+            btnProduct.TabIndex = 2;
+            btnProduct.Text = "Productos";
+            btnProduct.UseVisualStyleBackColor = false;
+            // 
+            // btnCaja
+            // 
+            btnCaja.BackColor = SystemColors.Menu;
+            btnCaja.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCaja.Image = Properties.Resources.cash_register;
+            btnCaja.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCaja.Location = new Point(3, 172);
+            btnCaja.Name = "btnCaja";
+            btnCaja.Size = new Size(218, 49);
+            btnCaja.TabIndex = 3;
+            btnCaja.Text = "Caja";
+            btnCaja.UseVisualStyleBackColor = false;
+            // 
+            // btnSupplier
+            // 
+            btnSupplier.BackColor = SystemColors.Menu;
+            btnSupplier.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSupplier.Image = Properties.Resources.proveedor;
+            btnSupplier.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSupplier.Location = new Point(3, 221);
+            btnSupplier.Name = "btnSupplier";
+            btnSupplier.Size = new Size(218, 49);
+            btnSupplier.TabIndex = 4;
+            btnSupplier.Text = "Proveedores";
+            btnSupplier.UseVisualStyleBackColor = false;
+            // 
+            // btnEmployee
+            // 
+            btnEmployee.BackColor = SystemColors.Menu;
+            btnEmployee.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEmployee.Image = Properties.Resources.empleados;
+            btnEmployee.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEmployee.Location = new Point(3, 270);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(218, 49);
+            btnEmployee.TabIndex = 5;
+            btnEmployee.Text = "Empleados";
+            btnEmployee.UseVisualStyleBackColor = false;
+            // 
+            // btnSales
+            // 
+            btnSales.BackColor = SystemColors.Menu;
+            btnSales.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSales.Image = Properties.Resources.sale;
+            btnSales.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSales.Location = new Point(3, 319);
+            btnSales.Name = "btnSales";
+            btnSales.Size = new Size(218, 49);
+            btnSales.TabIndex = 6;
+            btnSales.Text = "Ventas";
+            btnSales.UseVisualStyleBackColor = false;
+            // 
+            // btnBank
+            // 
+            btnBank.BackColor = SystemColors.Menu;
+            btnBank.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBank.Image = Properties.Resources.banco;
+            btnBank.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBank.Location = new Point(3, 368);
+            btnBank.Name = "btnBank";
+            btnBank.Size = new Size(218, 49);
+            btnBank.TabIndex = 7;
+            btnBank.Text = "Bancos";
+            btnBank.UseVisualStyleBackColor = false;
+            // 
+            // btnUser
+            // 
+            btnUser.BackColor = SystemColors.Menu;
+            btnUser.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUser.Image = Properties.Resources.usuarios;
+            btnUser.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUser.Location = new Point(3, 417);
+            btnUser.Name = "btnUser";
+            btnUser.Size = new Size(218, 49);
+            btnUser.TabIndex = 8;
+            btnUser.Text = "Usuarios";
+            btnUser.UseVisualStyleBackColor = false;
+            btnUser.Click += btnUser_Click;
             // 
             // Menu
             // 
@@ -107,7 +215,7 @@
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Menu";
-            Text = "f";
+            Text = "Menu";
             KeyPress += Menu_KeyPress;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -122,5 +230,12 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel pMenu;
+        private Button btnUser;
+        private Button btnBank;
+        private Button btnSales;
+        private Button btnEmployee;
+        private Button btnSupplier;
+        private Button btnCaja;
+        private Button btnProduct;
     }
 }

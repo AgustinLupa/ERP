@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace SystemERP.Model
 {
-    internal class Stock
+    public class Stock
     {
+        public int Id { get; set; }
+        public double Quantity { get; set; }
     }
 }

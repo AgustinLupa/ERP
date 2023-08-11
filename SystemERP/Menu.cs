@@ -46,5 +46,18 @@ namespace SystemERP.View
                 }
             }
         }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario hijo
+            UserMenu userMenu = new UserMenu();
+
+            // Asignar el formulario hijo como hijo del panel
+            userMenu.TopLevel = false;
+            pMenu.Controls.Clear(); // Limpiar el panel antes de agregar el nuevo formulario
+            pMenu.Controls.Add(userMenu);
+            userMenu.Dock = DockStyle.Fill;
+            userMenu.Show();
+        }
     }
 }
