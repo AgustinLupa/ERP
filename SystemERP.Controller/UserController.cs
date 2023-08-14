@@ -65,7 +65,7 @@ namespace SystemERP.Controller
             activeUser.Role = role;
         }
 
-        public bool CreateUser(string name, string pass)
+        public bool CreateUser(string name, string pass, int id_Role)
         {
             if (name == "" || name == null)
             {
@@ -77,10 +77,16 @@ namespace SystemERP.Controller
                 return false;
             }
 
+            if (id_Role <= 0 && id_Role == null)
+            {
+                return false;
+            }
+
             User user = new User()
             {
                 Name = name,
-                Password = KeySha256.CalculateSHA256(pass)
+                Password = KeySha256.CalculateSHA256(pass),
+                Id_Role = id_Role
             };
             return _userData.Create(user);
         }

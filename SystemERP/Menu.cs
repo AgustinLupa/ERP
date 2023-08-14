@@ -50,7 +50,7 @@ namespace SystemERP.View
         private void btnUser_Click(object sender, EventArgs e)
         {
             // Crear una instancia del formulario hijo
-            UserMenu userMenu = new UserMenu(userControl);
+            UserMenu userMenu = new UserMenu(userControl, roleController);
 
             // Asignar el formulario hijo como hijo del panel
             userMenu.TopLevel = false;

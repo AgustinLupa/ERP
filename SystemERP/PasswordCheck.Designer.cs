@@ -58,7 +58,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(25, 19);
+            label1.Location = new Point(21, 28);
             label1.Name = "label1";
             label1.Size = new Size(45, 20);
             label1.TabIndex = 2;
@@ -66,10 +66,12 @@
             // 
             // txtPass
             // 
+            txtPass.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtPass.Location = new Point(83, 19);
             txtPass.Name = "txtPass";
-            txtPass.Size = new Size(224, 23);
+            txtPass.Size = new Size(224, 29);
             txtPass.TabIndex = 1;
+            txtPass.UseSystemPasswordChar = true;
             // 
             // PasswordCheck
             // 

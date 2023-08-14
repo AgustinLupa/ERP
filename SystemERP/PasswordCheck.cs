@@ -25,7 +25,7 @@ namespace SystemERP.View
             if (userController.CompareKey(txtPass.Text))
             {
                 DialogResult = DialogResult.OK;
-                this.Close();
+                Close();
             }
             else
             {
@@ -35,7 +35,7 @@ namespace SystemERP.View
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Cancel; 
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

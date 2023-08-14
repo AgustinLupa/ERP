@@ -36,11 +36,15 @@
             radioButton2 = new RadioButton();
             radioButton1 = new RadioButton();
             panel3 = new Panel();
+            lvDescrip = new ListView();
+            label4 = new Label();
+            cbRole = new ComboBox();
             btnNewUser = new Button();
             txtNewPassword = new TextBox();
             label3 = new Label();
             txtNewNameUser = new TextBox();
             label2 = new Label();
+            DescriptRol = new ColumnHeader();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -58,6 +62,7 @@
             // 
             // panel1
             // 
+            panel1.BackColor = SystemColors.GradientActiveCaption;
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -67,6 +72,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = SystemColors.ActiveCaption;
             panel2.Controls.Add(radioButton4);
             panel2.Controls.Add(radioButton3);
             panel2.Controls.Add(radioButton2);
@@ -128,20 +134,55 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(lvDescrip);
+            panel3.Controls.Add(label4);
+            panel3.Controls.Add(cbRole);
             panel3.Controls.Add(btnNewUser);
             panel3.Controls.Add(txtNewPassword);
             panel3.Controls.Add(label3);
             panel3.Controls.Add(txtNewNameUser);
             panel3.Controls.Add(label2);
-            panel3.Location = new Point(127, 61);
+            panel3.Location = new Point(115, 55);
             panel3.Name = "panel3";
-            panel3.Size = new Size(495, 223);
+            panel3.Size = new Size(547, 341);
             panel3.TabIndex = 3;
+            // 
+            // lvDescrip
+            // 
+            lvDescrip.BackColor = SystemColors.GradientInactiveCaption;
+            lvDescrip.Columns.AddRange(new ColumnHeader[] { DescriptRol });
+            lvDescrip.Location = new Point(16, 143);
+            lvDescrip.Name = "lvDescrip";
+            lvDescrip.Size = new Size(528, 132);
+            lvDescrip.TabIndex = 8;
+            lvDescrip.UseCompatibleStateImageBehavior = false;
+            lvDescrip.View = System.Windows.Forms.View.Details;
+            lvDescrip.Visible = false;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(15, 97);
+            label4.Name = "label4";
+            label4.Size = new Size(93, 21);
+            label4.TabIndex = 5;
+            label4.Text = "Asignar Rol";
+            // 
+            // cbRole
+            // 
+            cbRole.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            cbRole.FormattingEnabled = true;
+            cbRole.Location = new Point(173, 97);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(128, 28);
+            cbRole.TabIndex = 3;
+            cbRole.SelectedIndexChanged += cbRole_SelectedIndexChanged;
             // 
             // btnNewUser
             // 
             btnNewUser.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNewUser.Location = new Point(304, 109);
+            btnNewUser.Location = new Point(421, 291);
             btnNewUser.Name = "btnNewUser";
             btnNewUser.Size = new Size(123, 42);
             btnNewUser.TabIndex = 4;
@@ -152,10 +193,12 @@
             // txtNewPassword
             // 
             txtNewPassword.BackColor = SystemColors.Menu;
-            txtNewPassword.Location = new Point(114, 54);
+            txtNewPassword.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtNewPassword.Location = new Point(173, 52);
             txtNewPassword.Name = "txtNewPassword";
-            txtNewPassword.Size = new Size(254, 23);
-            txtNewPassword.TabIndex = 3;
+            txtNewPassword.Size = new Size(254, 27);
+            txtNewPassword.TabIndex = 2;
+            txtNewPassword.UseSystemPasswordChar = true;
             // 
             // label3
             // 
@@ -163,18 +206,18 @@
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(16, 54);
             label3.Name = "label3";
-            label3.Size = new Size(92, 21);
+            label3.Size = new Size(49, 21);
             label3.TabIndex = 2;
-            label3.Text = "Contrasena";
+            label3.Text = "Clave";
             // 
             // txtNewNameUser
             // 
             txtNewNameUser.BackColor = SystemColors.Menu;
+            txtNewNameUser.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             txtNewNameUser.Location = new Point(173, 16);
             txtNewNameUser.Name = "txtNewNameUser";
-            txtNewNameUser.Size = new Size(254, 23);
+            txtNewNameUser.Size = new Size(254, 27);
             txtNewNameUser.TabIndex = 1;
-            txtNewNameUser.TextChanged += txtNewNameUser_TextChanged;
             // 
             // label2
             // 
@@ -185,6 +228,11 @@
             label2.Size = new Size(151, 21);
             label2.TabIndex = 0;
             label2.Text = "Nombre de usuario";
+            // 
+            // DescriptRol
+            // 
+            DescriptRol.Text = "Descripcion del rol";
+            DescriptRol.Width = 520;
             // 
             // UserMenu
             // 
@@ -223,5 +271,9 @@
         private Label label3;
         private TextBox txtNewNameUser;
         private Label label2;
+        private Label label4;
+        private ComboBox cbRole;
+        private ListView lvDescrip;
+        private ColumnHeader DescriptRol;
     }
 }
