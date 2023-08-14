@@ -17,9 +17,9 @@ namespace SystemERP.Data.Tests
         {
             // Arrange            
             RoleData data = new RoleData();
+            int actualResult = 3;
 
             // Act
-            int actualResult = 3;
             var result = data.GetAll().Count();
 
             // Assert

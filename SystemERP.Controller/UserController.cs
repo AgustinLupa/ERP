@@ -49,7 +49,7 @@ namespace SystemERP.Controller
                 return false;
             }
             string pass = KeySha256.CalculateSHA256(key);
-            if (key == activeUser.Password)
+            if (pass == activeUser.Password)
             {
                 return true;
             }            
@@ -63,6 +63,26 @@ namespace SystemERP.Controller
         public void SetRoleActive(Role role)
         {
             activeUser.Role = role;
+        }
+
+        public bool CreateUser(string name, string pass)
+        {
+            if (name == "" || name == null)
+            {
+                return false;
+            }
+
+            if (pass == "" || pass == null)
+            {
+                return false;
+            }
+
+            User user = new User()
+            {
+                Name = name,
+                Password = KeySha256.CalculateSHA256(pass)
+            };
+            return _userData.Create(user);
         }
     }
 }
