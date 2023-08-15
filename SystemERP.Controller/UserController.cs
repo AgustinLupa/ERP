@@ -90,5 +90,9 @@ namespace SystemERP.Controller
             };
             return _userData.Create(user);
         }
+
+        public IEnumerable<User> GetAll() {
+            return _userData.GetAll();
+        }
     }
 }

@@ -14,5 +14,17 @@ namespace SystemERP.Model
         public int State { get; set; }
         public int Id_Role { get; set; }
         public Role? Role { get; set; }
+
+        public override string ToString()
+        {
+            if (this.State == 1)
+            {
+                return $"Nombre: {Name}, Disponible: Si";
+            }
+            else
+            {
+                return $"Nombre: {Name}, Disponible: No";
+            }            
+        }
     }
 }

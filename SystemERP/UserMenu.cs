@@ -23,85 +23,40 @@ namespace SystemERP.View
             roleController = role;
             roles = role.GetActiveRole();
             InitializeComponent();
-            foreach (var item in roles)
-            {
-                cbRole.Items.Add(item.Name);
-            }
         }
 
-        private void btnNewUser_Click(object sender, EventArgs e)
+
+        private void rbEdit_CheckedChanged(object sender, EventArgs e)
         {
-            PasswordCheck passwordCheck = new PasswordCheck(usercontroller);
-            this.Enabled = false;
-            if (passwordCheck.ShowDialog() == DialogResult.OK)
+            pformCreate.Controls.Clear();
+            if (rbEdit.Checked)
             {
-                Role role = new Role();
-                foreach (var item in roles)
-                {
-                    if (item.Name == cbRole.SelectedText)
-                    {
-                        role = item;
-                    }
-                }
-                if (usercontroller.CreateUser(txtNewNameUser.Text, txtNewPassword.Text, role.Id))
-                {
-                    MessageBox.Show("Usuario creado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-                else
-                {
-                    MessageBox.Show("Error al crear usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                pformCreate.Visible = true;
+                UpdateUser updateUser = new UpdateUser(usercontroller, roleController, roles);
+                updateUser.TopLevel = false;
+                updateUser.FormBorderStyle = FormBorderStyle.None;
+                updateUser.Dock = DockStyle.Fill;
 
+                pformCreate.Controls.Add(updateUser);
+                updateUser.Show();
             }
-            this.Enabled = true;
-        }
-
-        private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbRole.SelectedIndex > -1)
+            else if (rbCreate.Checked)
             {
-                lvDescrip.Visible = true;
-                lvDescrip.Items.Clear();
-                string Description = $"";
-                foreach (var item in roles)
-                {
-                    if (cbRole.Text == item.Name)
-                    {
-                        foreach (var item2 in item.RolePermissions)
-                        {
-                            Description += $" Descripcion: {item2.Permission.Description} \n ";
-                            if (item2.Add == 1)
-                            {
-                                Description += $"Agregar: Habilitado, ";
-                            }
-                            else
-                            {
-                                Description += $"Agregar: Desabilitado, ";
-                            }
-                            if (item2.Remove == 1)
-                            {
-                                Description += $"Eliminar: Habilitado, ";
-                            }
-                            else
-                            {
-                                Description += $"Eliminar: Desabilitado, ";
-                            }
-                            if (item2.Edit == 1)
-                            {
-                                Description += $"Modificar: Habilitado ";
-                            }
-                            else
-                            {
-                                Description += $"Modificar: Desabilitado ";
-                            }
-                            lvDescrip.Items.Add(Description);
-                        }
-                    }
-                }
+                pformCreate.Visible = true;
+                CreatUser creatUser = new CreatUser(usercontroller, roleController, roles);
+                creatUser.TopLevel = false;
+                creatUser.FormBorderStyle = FormBorderStyle.None;
+                creatUser.Dock = DockStyle.Fill;
 
-
-
+                pformCreate.Controls.Add(creatUser);
+                creatUser.Show();
+            }
+            else
+            {
+                pformCreate.Controls.Clear();
+                pformCreate.Visible = false;
             }
         }
+
     }
 }

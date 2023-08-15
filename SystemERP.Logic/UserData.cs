@@ -110,7 +110,7 @@ namespace SystemERP.Data
             }
         }
         
-        public IEnumerable<dynamic> GetAll()
+        public IEnumerable<User> GetAll()
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
@@ -118,14 +118,14 @@ namespace SystemERP.Data
                 {
                     connection.Open();
                     var mysql = @"SELECT * FROM users";
-                    var result = connection.Query(mysql).ToList();                                        
+                    var result = connection.Query<User>(mysql).ToList();                                        
                     connection.Close();
                     return result;                                        
                 }
                 catch (Exception)
                 {
                     connection.Close();
-                    return null;
+                    return new List<User>();
                 }
             }
         }
