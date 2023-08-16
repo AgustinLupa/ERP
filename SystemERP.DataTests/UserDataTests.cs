@@ -100,7 +100,7 @@ namespace SystemERP.Data.Tests
             var result = new List<User>();
             foreach (var item in data.GetAll())
             {
-                result.Add(new User { Id = item.id });
+                result.Add(new User { Id = item.Id });
             }
 
             // Assert

@@ -30,7 +30,7 @@
         {
             panel1 = new Panel();
             lbUsers = new ListBox();
-            btnNewUser = new Button();
+            btnUpdateUser = new Button();
             lvDescrip = new ListView();
             DescriptRol = new ColumnHeader();
             label4 = new Label();
@@ -40,14 +40,18 @@
             txtNewNameUser = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            rbEnable = new RadioButton();
+            rbDisable = new RadioButton();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(rbDisable);
+            panel1.Controls.Add(rbEnable);
             panel1.Controls.Add(lbUsers);
-            panel1.Controls.Add(btnNewUser);
+            panel1.Controls.Add(btnUpdateUser);
             panel1.Controls.Add(lvDescrip);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(cbRole);
@@ -72,23 +76,25 @@
             lbUsers.Name = "lbUsers";
             lbUsers.Size = new Size(530, 72);
             lbUsers.TabIndex = 17;
+            lbUsers.SelectedIndexChanged += lbUsers_SelectedIndexChanged;
             // 
-            // btnNewUser
+            // btnUpdateUser
             // 
-            btnNewUser.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnNewUser.Location = new Point(400, 400);
-            btnNewUser.Name = "btnNewUser";
-            btnNewUser.Size = new Size(153, 45);
-            btnNewUser.TabIndex = 5;
-            btnNewUser.Text = "Modificar usuario";
-            btnNewUser.UseVisualStyleBackColor = true;
+            btnUpdateUser.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateUser.Location = new Point(400, 420);
+            btnUpdateUser.Name = "btnUpdateUser";
+            btnUpdateUser.Size = new Size(153, 45);
+            btnUpdateUser.TabIndex = 7;
+            btnUpdateUser.Text = "Modificar usuario";
+            btnUpdateUser.UseVisualStyleBackColor = true;
+            btnUpdateUser.Click += btnUpdateUser_Click;
             // 
             // lvDescrip
             // 
             lvDescrip.BackColor = SystemColors.GradientInactiveCaption;
             lvDescrip.Columns.AddRange(new ColumnHeader[] { DescriptRol });
             lvDescrip.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lvDescrip.Location = new Point(24, 269);
+            lvDescrip.Location = new Point(24, 301);
             lvDescrip.Name = "lvDescrip";
             lvDescrip.Size = new Size(529, 109);
             lvDescrip.TabIndex = 15;
@@ -170,6 +176,31 @@
             label1.TabIndex = 1;
             label1.Text = "Seleccione el usuario a modificar ";
             // 
+            // rbEnable
+            // 
+            rbEnable.AutoSize = true;
+            rbEnable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            rbEnable.Location = new Point(230, 262);
+            rbEnable.Name = "rbEnable";
+            rbEnable.Size = new Size(98, 24);
+            rbEnable.TabIndex = 5;
+            rbEnable.TabStop = true;
+            rbEnable.Text = "Habilitado";
+            rbEnable.UseVisualStyleBackColor = true;
+            // 
+            // rbDisable
+            // 
+            rbDisable.AutoSize = true;
+            rbDisable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            rbDisable.Location = new Point(400, 262);
+            rbDisable.Name = "rbDisable";
+            rbDisable.Size = new Size(112, 24);
+            rbDisable.TabIndex = 6;
+            rbDisable.TabStop = true;
+            rbDisable.Text = "Desabilitado";
+            rbDisable.TextAlign = ContentAlignment.MiddleCenter;
+            rbDisable.UseVisualStyleBackColor = true;
+            // 
             // UpdateUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -196,7 +227,9 @@
         private Label label3;
         private TextBox txtNewNameUser;
         private Label label2;
-        private Button btnNewUser;
+        private Button btnUpdateUser;
         private ListBox lbUsers;
+        private RadioButton rbDisable;
+        private RadioButton rbEnable;
     }
 }

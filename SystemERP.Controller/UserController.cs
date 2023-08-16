@@ -94,5 +94,49 @@ namespace SystemERP.Controller
         public IEnumerable<User> GetAll() {
             return _userData.GetAll();
         }
+
+        public bool UpdateUser(int id_user, string name, string password, int id_role, bool state)
+        {
+            if (id_role <= 0 || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password) || id_role <=0)
+            {
+                return false;
+            }
+            User user;
+            if (state)
+            {
+                user = new User()
+                {
+                    Id = id_user,
+                    Name = name,
+                    Password = KeySha256.CalculateSHA256(password),
+                    Id_Role = id_role,
+                    State = 1
+                };
+                return _userData.Update(user);
+            }
+            else
+            {
+                user = new User()
+                {
+                    Name = name,
+                    Password = KeySha256.CalculateSHA256(password),
+                    Id_Role = id_role,
+                    State = 0
+                };
+                return _userData.Update(user);
+            }            
+        }
+
+        public bool DeleteUser(int id_user)
+        {
+            if(id_user <= 0 || id_user == null)
+            {
+                return false;
+            }
+            User user = new User() {
+                Id = id_user,
+            };
+            return _userData.Delete(user);
+        }
     }
 }

@@ -65,7 +65,7 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"UPDATE  users SET name = @Name, password=@Password, id_role=@Id_Role where (id = @Id)";                    
+                    var mysql = @"UPDATE users SET name = @Name, password=@Password, id_role=@Id_Role, state=@State where (id = @Id)";                    
                     var result = connection.Execute(mysql, user);
                     if (result > 0)
                     {
@@ -91,7 +91,7 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"UPDATE  users SET state=0 where (id = @Id)";                   
+                    var mysql = @"UPDATE users SET state=0 where (id = @Id)";                   
                     var result = connection.Execute(mysql, user);
                     if (result > 0)
                     {

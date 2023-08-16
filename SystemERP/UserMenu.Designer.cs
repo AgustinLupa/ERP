@@ -94,6 +94,7 @@
             rbDelete.TabIndex = 2;
             rbDelete.Text = "Eliminar";
             rbDelete.UseVisualStyleBackColor = true;
+            rbDelete.CheckedChanged += rbEdit_CheckedChanged;
             // 
             // rbEdit
             // 
