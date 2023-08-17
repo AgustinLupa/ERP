@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            cbChangePass = new CheckBox();
+            rbDisable = new RadioButton();
+            rbEnable = new RadioButton();
             lbUsers = new ListBox();
             btnUpdateUser = new Button();
             lvDescrip = new ListView();
@@ -40,14 +43,13 @@
             txtNewNameUser = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            rbEnable = new RadioButton();
-            rbDisable = new RadioButton();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(cbChangePass);
             panel1.Controls.Add(rbDisable);
             panel1.Controls.Add(rbEnable);
             panel1.Controls.Add(lbUsers);
@@ -65,6 +67,43 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(565, 473);
             panel1.TabIndex = 0;
+            // 
+            // cbChangePass
+            // 
+            cbChangePass.AutoSize = true;
+            cbChangePass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            cbChangePass.Location = new Point(24, 188);
+            cbChangePass.Name = "cbChangePass";
+            cbChangePass.Size = new Size(103, 19);
+            cbChangePass.TabIndex = 18;
+            cbChangePass.Text = "Cambiar Clave";
+            cbChangePass.UseVisualStyleBackColor = true;
+            cbChangePass.CheckedChanged += cbChangePass_CheckedChanged;
+            // 
+            // rbDisable
+            // 
+            rbDisable.AutoSize = true;
+            rbDisable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            rbDisable.Location = new Point(400, 262);
+            rbDisable.Name = "rbDisable";
+            rbDisable.Size = new Size(112, 24);
+            rbDisable.TabIndex = 6;
+            rbDisable.TabStop = true;
+            rbDisable.Text = "Desabilitado";
+            rbDisable.TextAlign = ContentAlignment.MiddleCenter;
+            rbDisable.UseVisualStyleBackColor = true;
+            // 
+            // rbEnable
+            // 
+            rbEnable.AutoSize = true;
+            rbEnable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            rbEnable.Location = new Point(230, 262);
+            rbEnable.Name = "rbEnable";
+            rbEnable.Size = new Size(98, 24);
+            rbEnable.TabIndex = 5;
+            rbEnable.TabStop = true;
+            rbEnable.Text = "Habilitado";
+            rbEnable.UseVisualStyleBackColor = true;
             // 
             // lbUsers
             // 
@@ -111,7 +150,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(131, 227);
+            label4.Location = new Point(151, 227);
             label4.Name = "label4";
             label4.Size = new Size(93, 21);
             label4.TabIndex = 14;
@@ -121,19 +160,20 @@
             // 
             cbRole.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             cbRole.FormattingEnabled = true;
-            cbRole.Location = new Point(230, 225);
+            cbRole.Location = new Point(256, 225);
             cbRole.Name = "cbRole";
-            cbRole.Size = new Size(279, 28);
+            cbRole.Size = new Size(297, 28);
             cbRole.TabIndex = 4;
             cbRole.SelectedIndexChanged += cbRole_SelectedIndexChanged;
             // 
             // txtNewPassword
             // 
             txtNewPassword.BackColor = SystemColors.Menu;
+            txtNewPassword.Enabled = false;
             txtNewPassword.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtNewPassword.Location = new Point(230, 182);
+            txtNewPassword.Location = new Point(256, 182);
             txtNewPassword.Name = "txtNewPassword";
-            txtNewPassword.Size = new Size(323, 27);
+            txtNewPassword.Size = new Size(297, 27);
             txtNewPassword.TabIndex = 3;
             txtNewPassword.UseSystemPasswordChar = true;
             // 
@@ -141,7 +181,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(125, 182);
+            label3.Location = new Point(151, 184);
             label3.Name = "label3";
             label3.Size = new Size(99, 21);
             label3.TabIndex = 12;
@@ -176,31 +216,6 @@
             label1.TabIndex = 1;
             label1.Text = "Seleccione el usuario a modificar ";
             // 
-            // rbEnable
-            // 
-            rbEnable.AutoSize = true;
-            rbEnable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbEnable.Location = new Point(230, 262);
-            rbEnable.Name = "rbEnable";
-            rbEnable.Size = new Size(98, 24);
-            rbEnable.TabIndex = 5;
-            rbEnable.TabStop = true;
-            rbEnable.Text = "Habilitado";
-            rbEnable.UseVisualStyleBackColor = true;
-            // 
-            // rbDisable
-            // 
-            rbDisable.AutoSize = true;
-            rbDisable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbDisable.Location = new Point(400, 262);
-            rbDisable.Name = "rbDisable";
-            rbDisable.Size = new Size(112, 24);
-            rbDisable.TabIndex = 6;
-            rbDisable.TabStop = true;
-            rbDisable.Text = "Desabilitado";
-            rbDisable.TextAlign = ContentAlignment.MiddleCenter;
-            rbDisable.UseVisualStyleBackColor = true;
-            // 
             // UpdateUser
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -231,5 +246,6 @@
         private ListBox lbUsers;
         private RadioButton rbDisable;
         private RadioButton rbEnable;
+        private CheckBox cbChangePass;
     }
 }

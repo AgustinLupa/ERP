@@ -117,7 +117,7 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"SELECT * FROM users";
+                    var mysql = @"SELECT * FROM users order by name ASC";
                     var result = connection.Query<User>(mysql).ToList();                                        
                     connection.Close();
                     return result;                                        

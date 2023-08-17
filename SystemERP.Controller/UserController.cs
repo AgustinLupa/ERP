@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -95,37 +96,71 @@ namespace SystemERP.Controller
             return _userData.GetAll();
         }
 
-        public bool UpdateUser(int id_user, string name, string password, int id_role, bool state)
+        public bool UpdateUser(int id_user, string name, string password, int id_role, bool state, bool changepass)
         {
             if (id_role <= 0 || string.IsNullOrEmpty(name) || string.IsNullOrEmpty(password) || id_role <=0)
             {
                 return false;
             }
             User user;
-            if (state)
+            if (changepass)
             {
-                user = new User()
+                if (state)
                 {
-                    Id = id_user,
-                    Name = name,
-                    Password = KeySha256.CalculateSHA256(password),
-                    Id_Role = id_role,
-                    State = 1
-                };
-                return _userData.Update(user);
+                    user = new User()
+                    {
+                        Id = id_user,
+                        Name = name,
+                        Password = KeySha256.CalculateSHA256(password),
+                        Id_Role = id_role,
+                        State = 1
+                    };
+                    return _userData.Update(user);
+                }
+                else
+                {
+                    user = new User()
+                    {
+                        Id = id_user,
+                        Name = name,
+                        Password = KeySha256.CalculateSHA256(password),
+                        Id_Role = id_role,
+                        State = 0
+                    };
+                    return _userData.Update(user);
+                }
             }
             else
             {
-                user = new User()
+
+                if (state)
                 {
-                    Name = name,
-                    Password = KeySha256.CalculateSHA256(password),
-                    Id_Role = id_role,
-                    State = 0
-                };
-                return _userData.Update(user);
-            }            
+
+                    user = new User()
+                    {
+                        Id = id_user,
+                        Name = name,
+                        Password =password,
+                        Id_Role = id_role,
+                        State = 1
+                    };
+                    return _userData.Update(user);
+                }
+                else
+                {
+                    user = new User()
+                    {
+                        Id = id_user,
+                        Name = name,
+                        Password = password,
+                        Id_Role = id_role,
+                        State = 0
+                    };
+                    return _userData.Update(user);
+                }
+            }
         }
+                                  
 
         public bool DeleteUser(int id_user)
         {

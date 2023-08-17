@@ -18,29 +18,19 @@ namespace SystemERP.View
         public UserController usercontroller;
         public RoleController roleController;
         IEnumerable<Role> roles;
-        IEnumerable<User> users;
+        List<User> users;
         User userUpdate;
+        List<User> userView;
         public UpdateUser(UserController user, RoleController role, IEnumerable<Role> _roles)
         {
             InitializeComponent();
             usercontroller = user;
             roleController = role;
             roles = _roles;
-            users = usercontroller.GetAll();
-            foreach (var item in roles)
-            {
-                foreach (var item2 in users)
-                {
-                    if (item2.Id_Role == item.Id)
-                    {
-                        item2.Role = item;
-                        var result = item2.ToString() + $", Rol: {item.Name}";
-                        lbUsers.Items.Add(result);                        
-                    }
-                }
-                cbRole.Items.Add(item.Name);
-            }
-        }        
+            users = usercontroller.GetAll().ToList();
+            userView = new List<User>();
+            BuildList(users);
+        }
 
         private void cbRole_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -82,6 +72,7 @@ namespace SystemERP.View
                             }
                             lvDescrip.Items.Add(Description);
                         }
+                        userUpdate.Role = item;
                     }
                 }
             }
@@ -90,13 +81,15 @@ namespace SystemERP.View
         private void lbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbUsers.SelectedIndex > -1)
-            {
-                List<User> listusers = users.ToList();
+            {                
                 if (users is IList<User>)
                 {
-                    userUpdate = listusers[lbUsers.SelectedIndex];
+                    userUpdate = userView[lbUsers.SelectedIndex];
+
                     txtNewNameUser.Text = userUpdate.Name;
-                    if(userUpdate.State == 1)
+
+
+                    if (userUpdate.State == 1)
                     {
                         rbEnable.Checked = true;
                         rbDisable.Checked = false;
@@ -106,6 +99,8 @@ namespace SystemERP.View
                         rbEnable.Checked = false;
                         rbDisable.Checked = true;
                     }
+
+
                     int roleIndex = cbRole.FindStringExact(userUpdate.Role.Name);
                     if (userUpdate.Name == "admin")
                     {
@@ -137,23 +132,93 @@ namespace SystemERP.View
             this.Enabled = false;
             if (passwordCheck.ShowDialog() == DialogResult.OK)
             {
-                if (usercontroller.UpdateUser(userUpdate.Id,txtNewNameUser.Text, txtNewPassword.Text, userUpdate.Role.Id, rbEnable.Checked))
+                if(cbChangePass.Checked)
                 {
-                    MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    txtNewNameUser.Text = "";
-                    txtNewPassword.Text = "";
-                    cbRole.SelectedIndex = 0;
-                    lvDescrip.Items.Clear();
-                    rbDisable.Checked = false;
-                    rbEnable.Checked = false;
+
+                    if (usercontroller.UpdateUser(userUpdate.Id, txtNewNameUser.Text, txtNewPassword.Text, userUpdate.Role.Id, rbEnable.Checked, cbChangePass.Checked))
+                    {
+                        MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al Modificar el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Error al Modificar el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (usercontroller.UpdateUser(userUpdate.Id, txtNewNameUser.Text, userUpdate.Password, userUpdate.Role.Id, rbEnable.Checked, cbChangePass.Checked))
+                    {
+                        MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al Modificar el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+                txtNewNameUser.Text = "";
+                txtNewPassword.Text = "";
+                cbRole.SelectedIndex = 0;
+                lvDescrip.Items.Clear();
+                rbDisable.Checked = false;
+                rbEnable.Checked = false;
+                lvDescrip.Visible = false;
+                BuildList(usercontroller.GetAll().ToList());
+
             }
             this.Enabled = true;
-        }        
+        }
 
+        private void BuildList(List<User> users)
+        {
+            lbUsers.Items.Clear();
+            if (cbRole.Items.Count == 0)
+            {
+                foreach (var item in roles)
+                {
+                    foreach (var item2 in users)
+                    {
+                        if (item2.Id_Role == item.Id)
+                        {
+                            item2.Role = item;
+                            var result = item2.ToString() + $", Rol: {item.Name}";
+                            lbUsers.Items.Add(result);
+                            userView.Add(item2);
+                        }
+                    }
+                    cbRole.Items.Add(item.Name);
+                }
+
+            }
+            else
+            {
+                lbUsers.Items.Clear();
+                foreach (var item in roles)
+                {
+                    foreach (var item2 in users)
+                    {
+                        if (item2.Id_Role == item.Id)
+                        {
+                            item2.Role = item;
+                            var result = item2.ToString() + $", Rol: {item.Name}";
+                            lbUsers.Items.Add(result);
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void cbChangePass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbChangePass.Checked)
+            {
+                txtNewPassword.Enabled = true;
+            }
+            else
+            {
+                txtNewPassword.Enabled = false;
+            }
+        }
     }
 }
