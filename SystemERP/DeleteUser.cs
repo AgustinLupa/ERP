@@ -25,19 +25,8 @@ namespace SystemERP.View
             usercontroller = user;
             roleController = role;
             roles = _roles;
-            users = user.GetAll();
-            foreach (var item in roles)
-            {
-                foreach (var item2 in users)
-                {
-                    if (item2.Id_Role == item.Id && item2.Name != "admin")
-                    {
-                        item2.Role = item;
-                        var result = item2.ToString() + $", Rol: {item.Name}";
-                        lbUsers.Items.Add(result);
-                    }
-                }
-            }
+            users = user.GetAll().Where(user => user.Name != "admin");           
+            UpdateList(users);            
 
         }
 
@@ -46,10 +35,10 @@ namespace SystemERP.View
             if (lbUsers.SelectedIndex > -1)
             {
                 List<User> listusers = users.ToList();
-                if (users is IList<User>)
+                if (listusers is IList<User>)
                 {
-                    int value = lbUsers.SelectedIndex;
-                    userDelete = listusers[value++];
+                    //int value = lbUsers.SelectedIndex;
+                    userDelete = listusers[lbUsers.SelectedIndex];
                 }
             }
         }
@@ -62,7 +51,8 @@ namespace SystemERP.View
             {
                 if (usercontroller.DeleteUser(userDelete.Id))
                 {
-                    MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                    
+                    MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    UpdateList(usercontroller.GetAll().Where(user => user.Name != "admin"));
                 }
                 else
                 {
@@ -70,6 +60,24 @@ namespace SystemERP.View
                 }
             }
             this.Enabled = true;
+        }
+
+        private void UpdateList(IEnumerable<User> users)
+        {
+            lbUsers.Items.Clear();
+            
+
+
+            foreach (var item in users)
+            {
+                var matchingRole = roles.FirstOrDefault(role => role.Id == item.Id_Role);
+                if (matchingRole != null)
+                {
+                    item.Role = matchingRole;
+                    var result = $"{item}, Rol: {matchingRole.Name}";
+                    lbUsers.Items.Add(result);
+                }
+            }
         }
     }
 }

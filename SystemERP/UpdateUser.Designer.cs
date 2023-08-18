@@ -43,12 +43,16 @@
             txtNewNameUser = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            txtFilter = new TextBox();
+            label5 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(txtFilter);
             panel1.Controls.Add(cbChangePass);
             panel1.Controls.Add(rbDisable);
             panel1.Controls.Add(rbEnable);
@@ -72,7 +76,7 @@
             // 
             cbChangePass.AutoSize = true;
             cbChangePass.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            cbChangePass.Location = new Point(24, 188);
+            cbChangePass.Location = new Point(24, 213);
             cbChangePass.Name = "cbChangePass";
             cbChangePass.Size = new Size(103, 19);
             cbChangePass.TabIndex = 18;
@@ -84,7 +88,7 @@
             // 
             rbDisable.AutoSize = true;
             rbDisable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbDisable.Location = new Point(400, 262);
+            rbDisable.Location = new Point(400, 287);
             rbDisable.Name = "rbDisable";
             rbDisable.Size = new Size(112, 24);
             rbDisable.TabIndex = 6;
@@ -97,7 +101,7 @@
             // 
             rbEnable.AutoSize = true;
             rbEnable.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            rbEnable.Location = new Point(230, 262);
+            rbEnable.Location = new Point(230, 287);
             rbEnable.Name = "rbEnable";
             rbEnable.Size = new Size(98, 24);
             rbEnable.TabIndex = 5;
@@ -111,7 +115,7 @@
             lbUsers.FormattingEnabled = true;
             lbUsers.HorizontalScrollbar = true;
             lbUsers.ItemHeight = 17;
-            lbUsers.Location = new Point(23, 47);
+            lbUsers.Location = new Point(23, 72);
             lbUsers.Name = "lbUsers";
             lbUsers.Size = new Size(530, 72);
             lbUsers.TabIndex = 17;
@@ -133,9 +137,9 @@
             lvDescrip.BackColor = SystemColors.GradientInactiveCaption;
             lvDescrip.Columns.AddRange(new ColumnHeader[] { DescriptRol });
             lvDescrip.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lvDescrip.Location = new Point(24, 301);
+            lvDescrip.Location = new Point(24, 317);
             lvDescrip.Name = "lvDescrip";
-            lvDescrip.Size = new Size(529, 109);
+            lvDescrip.Size = new Size(529, 97);
             lvDescrip.TabIndex = 15;
             lvDescrip.UseCompatibleStateImageBehavior = false;
             lvDescrip.View = System.Windows.Forms.View.Details;
@@ -150,7 +154,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(151, 227);
+            label4.Location = new Point(151, 252);
             label4.Name = "label4";
             label4.Size = new Size(93, 21);
             label4.TabIndex = 14;
@@ -160,7 +164,7 @@
             // 
             cbRole.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             cbRole.FormattingEnabled = true;
-            cbRole.Location = new Point(256, 225);
+            cbRole.Location = new Point(256, 250);
             cbRole.Name = "cbRole";
             cbRole.Size = new Size(297, 28);
             cbRole.TabIndex = 4;
@@ -171,7 +175,7 @@
             txtNewPassword.BackColor = SystemColors.Menu;
             txtNewPassword.Enabled = false;
             txtNewPassword.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtNewPassword.Location = new Point(256, 182);
+            txtNewPassword.Location = new Point(256, 207);
             txtNewPassword.Name = "txtNewPassword";
             txtNewPassword.Size = new Size(297, 27);
             txtNewPassword.TabIndex = 3;
@@ -181,7 +185,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(151, 184);
+            label3.Location = new Point(151, 209);
             label3.Name = "label3";
             label3.Size = new Size(99, 21);
             label3.TabIndex = 12;
@@ -191,7 +195,7 @@
             // 
             txtNewNameUser.BackColor = SystemColors.Menu;
             txtNewNameUser.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            txtNewNameUser.Location = new Point(230, 144);
+            txtNewNameUser.Location = new Point(230, 169);
             txtNewNameUser.Name = "txtNewNameUser";
             txtNewNameUser.Size = new Size(323, 27);
             txtNewNameUser.TabIndex = 2;
@@ -200,7 +204,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(24, 146);
+            label2.Location = new Point(24, 171);
             label2.Name = "label2";
             label2.Size = new Size(200, 21);
             label2.TabIndex = 9;
@@ -210,11 +214,29 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(24, 9);
+            label1.Location = new Point(24, 48);
             label1.Name = "label1";
-            label1.Size = new Size(253, 21);
+            label1.Size = new Size(304, 21);
             label1.TabIndex = 1;
-            label1.Text = "Seleccione el usuario a modificar ";
+            label1.Text = "Seleccione el usuario o fltre por nombre";
+            // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(166, 12);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(387, 23);
+            txtFilter.TabIndex = 19;
+            txtFilter.TextChanged += txtFilter_TextChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(24, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(136, 20);
+            label5.TabIndex = 20;
+            label5.Text = "Filtrar por nombre";
             // 
             // UpdateUser
             // 
@@ -247,5 +269,7 @@
         private RadioButton rbDisable;
         private RadioButton rbEnable;
         private CheckBox cbChangePass;
+        private Label label5;
+        private TextBox txtFilter;
     }
 }

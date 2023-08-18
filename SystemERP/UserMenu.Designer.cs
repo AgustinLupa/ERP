@@ -83,6 +83,7 @@
             rbGetAll.TabIndex = 3;
             rbGetAll.Text = "Mostrar";
             rbGetAll.UseVisualStyleBackColor = true;
+            rbGetAll.CheckedChanged += rbEdit_CheckedChanged;
             // 
             // rbDelete
             // 

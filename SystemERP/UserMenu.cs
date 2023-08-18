@@ -62,6 +62,17 @@ namespace SystemERP.View
                 pformCreate.Controls.Add(deleteUser);
                 deleteUser.Show();
             }
+            else if (rbGetAll.Checked)
+            {
+                pformCreate.Visible = true;
+                AllUser allUser = new AllUser(usercontroller, roleController, roles);
+                allUser.TopLevel = false;
+                allUser.FormBorderStyle = FormBorderStyle.None;
+                allUser.Dock = DockStyle.Fill;
+
+                pformCreate.Controls.Add(allUser);
+                allUser.Show();
+            }
             else
             {
                 pformCreate.Controls.Clear();

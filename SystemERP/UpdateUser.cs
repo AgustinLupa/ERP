@@ -81,7 +81,7 @@ namespace SystemERP.View
         private void lbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (lbUsers.SelectedIndex > -1)
-            {                
+            {
                 if (users is IList<User>)
                 {
                     userUpdate = userView[lbUsers.SelectedIndex];
@@ -132,13 +132,13 @@ namespace SystemERP.View
             this.Enabled = false;
             if (passwordCheck.ShowDialog() == DialogResult.OK)
             {
-                if(cbChangePass.Checked)
+                if (cbChangePass.Checked)
                 {
 
                     if (usercontroller.UpdateUser(userUpdate.Id, txtNewNameUser.Text, txtNewPassword.Text, userUpdate.Role.Id, rbEnable.Checked, cbChangePass.Checked))
                     {
                         MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        
+
                     }
                     else
                     {
@@ -149,7 +149,7 @@ namespace SystemERP.View
                 {
                     if (usercontroller.UpdateUser(userUpdate.Id, txtNewNameUser.Text, userUpdate.Password, userUpdate.Role.Id, rbEnable.Checked, cbChangePass.Checked))
                     {
-                        MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                        
+                        MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                     else
                     {
@@ -219,6 +219,23 @@ namespace SystemERP.View
             {
                 txtNewPassword.Enabled = false;
             }
+        }
+
+        private void txtFilter_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = txtFilter.Text;
+            FilterListBox(filterText);
+        }
+
+        private void FilterListBox(string filterText)
+        {
+            lbUsers.Items.Clear();
+
+            var filteredUsers = users
+                .Where(user => user.Name.IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .Select(user => $"{user}, Rol: {user.Role.Name}");
+
+            lbUsers.Items.AddRange(filteredUsers.ToArray());
         }
     }
 }
