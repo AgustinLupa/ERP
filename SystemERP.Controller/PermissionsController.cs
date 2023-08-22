@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemERP.Data;
+using SystemERP.Model;
 
 namespace SystemERP.Controller
 {
@@ -39,5 +40,11 @@ namespace SystemERP.Controller
             if (state < 0) { return false; } 
             return data.UpdatePermission(new Model.Permissions() { Id=id, Description= descripcion, State = state });
         }
+
+        public IEnumerable<Permissions> GetAll()
+        {
+            return data.GetAll();
+        }
+        
     }
 }

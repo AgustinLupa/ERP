@@ -129,7 +129,27 @@ namespace SystemERP.Data
                 catch (Exception)
                 {
                     connection.Close();
-                    return null;
+                    return new Permissions();
+                }
+            }
+        }
+
+        public IEnumerable<Permissions> GetAll()
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"SELECT * FROM permissions";
+                    IEnumerable<Permissions> result = connection.Query<Permissions>(mysql);
+                    connection.Close();
+                    return result;
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return new List<Permissions>();
                 }
             }
         }

@@ -16,6 +16,7 @@ namespace SystemERP.View
     {
         public UserController userControl;
         public RoleController roleController;
+        PermissionsController permissionsController;
 
         public Menu(UserController user)
         {

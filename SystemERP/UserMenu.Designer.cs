@@ -31,11 +31,13 @@
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
-            rbGetAll = new RadioButton();
             rbDelete = new RadioButton();
             rbEdit = new RadioButton();
             rbCreate = new RadioButton();
             pformCreate = new Panel();
+            rbCreateRole = new RadioButton();
+            rbUpdateRole = new RadioButton();
+            rbDeleteRole = new RadioButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -63,7 +65,9 @@
             // panel2
             // 
             panel2.BackColor = Color.SteelBlue;
-            panel2.Controls.Add(rbGetAll);
+            panel2.Controls.Add(rbDeleteRole);
+            panel2.Controls.Add(rbUpdateRole);
+            panel2.Controls.Add(rbCreateRole);
             panel2.Controls.Add(rbDelete);
             panel2.Controls.Add(rbEdit);
             panel2.Controls.Add(rbCreate);
@@ -73,25 +77,13 @@
             panel2.Size = new Size(112, 473);
             panel2.TabIndex = 2;
             // 
-            // rbGetAll
-            // 
-            rbGetAll.AutoSize = true;
-            rbGetAll.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            rbGetAll.Location = new Point(10, 161);
-            rbGetAll.Name = "rbGetAll";
-            rbGetAll.Size = new Size(86, 25);
-            rbGetAll.TabIndex = 3;
-            rbGetAll.Text = "Mostrar";
-            rbGetAll.UseVisualStyleBackColor = true;
-            rbGetAll.CheckedChanged += rbEdit_CheckedChanged;
-            // 
             // rbDelete
             // 
             rbDelete.AutoSize = true;
-            rbDelete.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            rbDelete.Location = new Point(10, 121);
+            rbDelete.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbDelete.Location = new Point(3, 110);
             rbDelete.Name = "rbDelete";
-            rbDelete.Size = new Size(85, 25);
+            rbDelete.Size = new Size(77, 21);
             rbDelete.TabIndex = 2;
             rbDelete.Text = "Eliminar";
             rbDelete.UseVisualStyleBackColor = true;
@@ -100,10 +92,10 @@
             // rbEdit
             // 
             rbEdit.AutoSize = true;
-            rbEdit.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            rbEdit.Location = new Point(10, 81);
+            rbEdit.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbEdit.Location = new Point(3, 70);
             rbEdit.Name = "rbEdit";
-            rbEdit.Size = new Size(99, 25);
+            rbEdit.Size = new Size(85, 21);
             rbEdit.TabIndex = 1;
             rbEdit.Text = "Modificar";
             rbEdit.UseVisualStyleBackColor = true;
@@ -112,10 +104,10 @@
             // rbCreate
             // 
             rbCreate.AutoSize = true;
-            rbCreate.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            rbCreate.Location = new Point(10, 41);
+            rbCreate.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbCreate.Location = new Point(3, 30);
             rbCreate.Name = "rbCreate";
-            rbCreate.Size = new Size(67, 25);
+            rbCreate.Size = new Size(63, 20);
             rbCreate.TabIndex = 0;
             rbCreate.Text = "Crear";
             rbCreate.UseVisualStyleBackColor = true;
@@ -128,6 +120,41 @@
             pformCreate.Name = "pformCreate";
             pformCreate.Size = new Size(565, 473);
             pformCreate.TabIndex = 3;
+            // 
+            // rbCreateRole
+            // 
+            rbCreateRole.AutoSize = true;
+            rbCreateRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbCreateRole.Location = new Point(3, 150);
+            rbCreateRole.Name = "rbCreateRole";
+            rbCreateRole.Size = new Size(82, 21);
+            rbCreateRole.TabIndex = 3;
+            rbCreateRole.Text = "Crear Rol";
+            rbCreateRole.UseVisualStyleBackColor = true;
+            rbCreateRole.CheckedChanged += rbEdit_CheckedChanged;
+            // 
+            // rbUpdateRole
+            // 
+            rbUpdateRole.AutoSize = true;
+            rbUpdateRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbUpdateRole.Location = new Point(3, 190);
+            rbUpdateRole.Name = "rbUpdateRole";
+            rbUpdateRole.Size = new Size(109, 21);
+            rbUpdateRole.TabIndex = 4;
+            rbUpdateRole.Text = "Modificar Rol";
+            rbUpdateRole.UseVisualStyleBackColor = true;
+            rbUpdateRole.CheckedChanged += rbEdit_CheckedChanged;
+            // 
+            // rbDeleteRole
+            // 
+            rbDeleteRole.AutoSize = true;
+            rbDeleteRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbDeleteRole.Location = new Point(3, 230);
+            rbDeleteRole.Name = "rbDeleteRole";
+            rbDeleteRole.Size = new Size(101, 21);
+            rbDeleteRole.TabIndex = 5;
+            rbDeleteRole.Text = "Eliminar Rol";
+            rbDeleteRole.UseVisualStyleBackColor = true;
             // 
             // UserMenu
             // 
@@ -154,10 +181,12 @@
         private Label label1;
         private Panel panel1;
         private Panel panel2;
-        private RadioButton rbGetAll;
         private RadioButton rbDelete;
         private RadioButton rbEdit;
         private RadioButton rbCreate;
         private Panel pformCreate;
+        private RadioButton rbUpdateRole;
+        private RadioButton rbCreateRole;
+        private RadioButton rbDeleteRole;
     }
 }
