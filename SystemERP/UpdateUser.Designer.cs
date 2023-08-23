@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label5 = new Label();
+            txtFilter = new TextBox();
             cbChangePass = new CheckBox();
             rbDisable = new RadioButton();
             rbEnable = new RadioButton();
@@ -43,8 +45,6 @@
             txtNewNameUser = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            txtFilter = new TextBox();
-            label5 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,6 +71,24 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(565, 473);
             panel1.TabIndex = 0;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(24, 11);
+            label5.Name = "label5";
+            label5.Size = new Size(136, 20);
+            label5.TabIndex = 20;
+            label5.Text = "Filtrar por nombre";
+            // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(166, 12);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(387, 23);
+            txtFilter.TabIndex = 19;
+            txtFilter.TextChanged += txtFilter_TextChanged;
             // 
             // cbChangePass
             // 
@@ -136,7 +154,7 @@
             // 
             lvDescrip.BackColor = SystemColors.GradientInactiveCaption;
             lvDescrip.Columns.AddRange(new ColumnHeader[] { DescriptRol });
-            lvDescrip.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lvDescrip.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lvDescrip.Location = new Point(24, 317);
             lvDescrip.Name = "lvDescrip";
             lvDescrip.Size = new Size(529, 97);
@@ -219,24 +237,6 @@
             label1.Size = new Size(304, 21);
             label1.TabIndex = 1;
             label1.Text = "Seleccione el usuario o fltre por nombre";
-            // 
-            // txtFilter
-            // 
-            txtFilter.Location = new Point(166, 12);
-            txtFilter.Name = "txtFilter";
-            txtFilter.Size = new Size(387, 23);
-            txtFilter.TabIndex = 19;
-            txtFilter.TextChanged += txtFilter_TextChanged;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(24, 11);
-            label5.Name = "label5";
-            label5.Size = new Size(136, 20);
-            label5.TabIndex = 20;
-            label5.Text = "Filtrar por nombre";
             // 
             // UpdateUser
             // 

@@ -62,11 +62,11 @@ namespace SystemERP.Data
                 {
                     connection.Open();
                     var insertQuery = @"
-                        INSERT INTO Role (name)
+                        INSERT INTO roles (name)
                         VALUES (@Name);
-                        SELECT CAST(SCOPE_IDENTITY() as int)";
+                        LAST_INSERT_ID();";
 
-                    int roleId = connection.QuerySingle<int>(insertQuery, role);
+                    int roleId = connection.Execute(insertQuery, role);
                     connection.Close();
                     return roleId;
                 }

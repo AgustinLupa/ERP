@@ -35,13 +35,13 @@
             // 
             // lbUsers
             // 
-            lbUsers.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            lbUsers.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbUsers.FormattingEnabled = true;
             lbUsers.HorizontalScrollbar = true;
-            lbUsers.ItemHeight = 17;
+            lbUsers.ItemHeight = 20;
             lbUsers.Location = new Point(11, 47);
             lbUsers.Name = "lbUsers";
-            lbUsers.Size = new Size(530, 242);
+            lbUsers.Size = new Size(530, 224);
             lbUsers.TabIndex = 19;
             lbUsers.SelectedIndexChanged += lbUsers_SelectedIndexChanged;
             // 

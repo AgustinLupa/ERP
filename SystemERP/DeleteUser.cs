@@ -25,8 +25,8 @@ namespace SystemERP.View
             usercontroller = user;
             roleController = role;
             roles = _roles;
-            users = user.GetAll().Where(user => user.Name != "admin");           
-            UpdateList(users);            
+            users = user.GetAll().Where(user => user.Name != "admin");
+            UpdateList(users);
 
         }
 
@@ -65,7 +65,7 @@ namespace SystemERP.View
         private void UpdateList(IEnumerable<User> users)
         {
             lbUsers.Items.Clear();
-            
+
 
 
             foreach (var item in users)

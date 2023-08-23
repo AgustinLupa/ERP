@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,23 +22,10 @@ namespace SystemERP.Controller
             if(id_permis <=0  || id_permis == null)
             {
                 return false;
-            }
-
-            if(add <=0 || add==null) {
-                return false;
-            }
-
-            if (remove <= 0 || remove ==null)
-            {
-                return false;
-            }
-
-            if (edit <=0 || remove==null)
-            {
-                return false;
-            }
+            }            
 
             return data.CreateRoleXPermi(new Model.RoleXPermissions() { Id_Role = id_role, Id_Permission = id_permis, Add=add, Remove=remove, Edit=edit});
         }
+
     }
 }

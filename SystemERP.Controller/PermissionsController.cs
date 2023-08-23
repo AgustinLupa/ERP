@@ -46,5 +46,6 @@ namespace SystemERP.Controller
             return data.GetAll();
         }
         
+        
     }
 }

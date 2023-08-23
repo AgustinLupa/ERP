@@ -60,17 +60,11 @@
   <metadata name="DeleteColum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="descriptioncolum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DeleteColum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="DeleteColum.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAYAAAA7bUf6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAghJREFUOE9tkztLXUEUhSdiYjAELZJesAhaRiIi6sxcjsHCWrh9wBTBJkVstLH2
+        vAAADrwBlbxySQAAAghJREFUOE9tkztLXUEUhSdiYjAELZJesAhaRiIi6sxcjsHCWrh9wBTBJkVstLH2
         F+RHCKkELfMHAtYWQoorwWfwlXvm5FtzzsR7J3dgcc7s2XvN2o8xvSssL78I3r+pvN8srf1eOncJuvx3
         gnMHYOPW2olqevpZE/K4KmOehKKYgmCXoFNIqkHgvIToKFj7sbJ2vAmvlwhK7/dwuBsUnAM/KduuVldH
         a4I6hd1EANm1kAc2Z1f43sS9cxcoapPFkFENUgoKZv8eqY7vWUZwStBc17kv+N9Hm3PHYX7+pWGz2eN4
@@ -82,7 +76,4 @@
         NzcAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="descriptioncolum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
 </root>
