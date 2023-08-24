@@ -232,6 +232,7 @@
             MaximizeBox = false;
             Name = "Menu";
             Text = "Menu";
+            FormClosing += Menu_FormClosing;
             KeyPress += Menu_KeyPress;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

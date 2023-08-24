@@ -38,5 +38,14 @@ namespace SystemERP.View
             DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void txtPass_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnConfirm.PerformClick();
+                e.SuppressKeyPress = true; //sonido off
+            }
+        }
     }
 }

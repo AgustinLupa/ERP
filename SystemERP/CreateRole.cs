@@ -34,7 +34,6 @@ namespace SystemERP.View
 
                 cbPermission.Items.Add(auxelemnt);
             }
-
             //UpdateList();
         }
 
@@ -51,7 +50,7 @@ namespace SystemERP.View
             dgvPermission.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
             dgvPermission.DataSource = null;
             dgvPermission.DataSource = permissionsView;
-            dgvPermission.Columns["Description"].Width = 408;
+            dgvPermission.Columns["Description"].Width = 440;
             dgvPermission.Columns["Description"].ReadOnly = true;
             dgvPermission.AllowUserToResizeRows = false;
             dgvPermission.AllowUserToResizeColumns = false;
@@ -61,7 +60,7 @@ namespace SystemERP.View
         {
             if (cbPermission.SelectedIndex <= -1)
             {
-                MessageBox.Show("No selecciono ningun permiso para agregar");
+                MessageBox.Show("No selecciono ningun permiso para agregar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -78,15 +77,15 @@ namespace SystemERP.View
             this.Enabled = false;
             if (passwordCheck.ShowDialog() == DialogResult.OK)
             {
-                if (roleControl.CreateRole(txtRoleName.Text)>0)
+                if (roleControl.CreateRole(txtRoleName.Text)>0 && permissionsView.Count() != 0 )
                 {
-                    MessageBox.Show("Usuario Modificado correctamente", "Usuario", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Rol Creado correctamente", "Roles", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     permissionsView.Clear();
                     UpdateList();
                 }
                 else
                 {
-                    MessageBox.Show("Error al Modificar el usuario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al Crear el Rol, verifique si existe el rol o no ingreso ningun nombre para el Rol", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             this.Enabled = true;

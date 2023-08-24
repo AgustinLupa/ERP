@@ -33,21 +33,20 @@ namespace SystemERP
 
         private void txtUser_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
+            if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                e.Handled = true;
                 txtPass.Focus();
             }
         }
 
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Tab)
-            {
+            if (e.KeyCode == Keys.Enter)
+            {               
                 e.SuppressKeyPress = true;
                 e.Handled = true;
-                btnLogin_Click(sender, e);
+                btnLogin.PerformClick();
             }
         }
     }

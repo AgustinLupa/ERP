@@ -17,6 +17,7 @@ namespace SystemERP.View
         public UserController userControl;
         public RoleController roleController;
         PermissionsController permissionsController;
+        bool closeform;
 
         public Menu(UserController user)
         {
@@ -67,9 +68,25 @@ namespace SystemERP.View
 
             if (result == DialogResult.Yes)
             {
+                closeform = true;
                 Owner.Show();
                 this.Close();
             }
+        }
+
+        private void Menu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing && !closeform)
+            {
+                // Cancelar el cierre del formulario cuando se intenta cerrar usando la "X" de la ventana
+                e.Cancel = true;
+                MessageBox.Show("No se puede cerrar el formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                e.Cancel = false;                
+            }            
+            
         }
     }
 }

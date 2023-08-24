@@ -72,6 +72,7 @@
             txtPass.Size = new Size(224, 29);
             txtPass.TabIndex = 1;
             txtPass.UseSystemPasswordChar = true;
+            txtPass.KeyDown += txtPass_KeyDown;
             // 
             // PasswordCheck
             // 
