@@ -84,9 +84,9 @@ namespace SystemERP.View
             }
             else
             {
-                e.Cancel = false;                
-            }            
-            
+                e.Cancel = false;
+            }
+
         }
     }
 }

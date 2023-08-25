@@ -86,7 +86,7 @@
             txtPass.Name = "txtPass";
             txtPass.PasswordChar = '*';
             txtPass.Size = new Size(207, 35);
-            txtPass.TabIndex = 2;
+            txtPass.TabIndex = 3;
             txtPass.TabStop = false;
             txtPass.UseSystemPasswordChar = true;
             txtPass.KeyDown += txtPass_KeyDown;
@@ -110,7 +110,7 @@
             btnLogin.Location = new Point(237, 241);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(133, 65);
-            btnLogin.TabIndex = 3;
+            btnLogin.TabIndex = 4;
             btnLogin.Text = "Iniciar";
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;

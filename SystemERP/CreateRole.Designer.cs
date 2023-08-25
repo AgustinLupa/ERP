@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateRole));
             panel1 = new Panel();
+            lbPermissions = new ListBox();
             btnCreateRole = new Button();
             cbDelete = new CheckBox();
             cbUpdate = new CheckBox();
             cbAdd = new CheckBox();
             btnAddPermission = new Button();
-            dgvPermission = new DataGridView();
-            DeleteColum = new DataGridViewImageColumn();
             label1 = new Label();
             cbPermission = new ComboBox();
             label2 = new Label();
             txtRoleName = new TextBox();
+            ilDelete = new ImageList(components);
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPermission).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(lbPermissions);
             panel1.Controls.Add(btnCreateRole);
             panel1.Controls.Add(cbDelete);
             panel1.Controls.Add(cbUpdate);
             panel1.Controls.Add(cbAdd);
             panel1.Controls.Add(btnAddPermission);
-            panel1.Controls.Add(dgvPermission);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(cbPermission);
             panel1.Controls.Add(label2);
@@ -64,10 +64,22 @@
             panel1.Size = new Size(565, 473);
             panel1.TabIndex = 0;
             // 
+            // lbPermissions
+            // 
+            lbPermissions.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lbPermissions.FormattingEnabled = true;
+            lbPermissions.ItemHeight = 17;
+            lbPermissions.Location = new Point(38, 177);
+            lbPermissions.Name = "lbPermissions";
+            lbPermissions.Size = new Size(494, 225);
+            lbPermissions.TabIndex = 8;
+            lbPermissions.MouseClick += lbPermissions_MouseClick;
+            lbPermissions.DrawItem += lbPermissions_DrawItem;
+            // 
             // btnCreateRole
             // 
             btnCreateRole.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCreateRole.Location = new Point(428, 376);
+            btnCreateRole.Location = new Point(428, 414);
             btnCreateRole.Name = "btnCreateRole";
             btnCreateRole.Size = new Size(104, 47);
             btnCreateRole.TabIndex = 7;
@@ -111,39 +123,13 @@
             // btnAddPermission
             // 
             btnAddPermission.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAddPermission.Location = new Point(412, 111);
+            btnAddPermission.Location = new Point(394, 122);
             btnAddPermission.Name = "btnAddPermission";
-            btnAddPermission.Size = new Size(120, 37);
+            btnAddPermission.Size = new Size(138, 37);
             btnAddPermission.TabIndex = 6;
-            btnAddPermission.Text = "Agregar Area";
+            btnAddPermission.Text = "Agregar Permiso";
             btnAddPermission.UseVisualStyleBackColor = true;
             btnAddPermission.Click += btnAddPermission_Click;
-            // 
-            // dgvPermission
-            // 
-            dgvPermission.AllowUserToResizeColumns = false;
-            dgvPermission.AllowUserToResizeRows = false;
-            dgvPermission.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dgvPermission.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPermission.Columns.AddRange(new DataGridViewColumn[] { DeleteColum });
-            dgvPermission.EnableHeadersVisualStyles = false;
-            dgvPermission.Location = new Point(30, 170);
-            dgvPermission.Name = "dgvPermission";
-            dgvPermission.RowHeadersVisible = false;
-            dgvPermission.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgvPermission.RowTemplate.Height = 25;
-            dgvPermission.Size = new Size(502, 187);
-            dgvPermission.TabIndex = 4;
-            dgvPermission.CellContentClick += dgvPermission_CellContentClick;
-            // 
-            // DeleteColum
-            // 
-            DeleteColum.HeaderText = "";
-            DeleteColum.Image = (Image)resources.GetObject("DeleteColum.Image");
-            DeleteColum.Name = "DeleteColum";
-            DeleteColum.Resizable = DataGridViewTriState.False;
-            DeleteColum.ToolTipText = "Sacar Permiso De La lista";
-            DeleteColum.Width = 50;
             // 
             // label1
             // 
@@ -163,6 +149,7 @@
             cbPermission.Name = "cbPermission";
             cbPermission.Size = new Size(242, 28);
             cbPermission.TabIndex = 2;
+            cbPermission.SelectedIndexChanged += cbPermission_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -182,6 +169,13 @@
             txtRoleName.Size = new Size(370, 29);
             txtRoleName.TabIndex = 1;
             // 
+            // ilDelete
+            // 
+            ilDelete.ColorDepth = ColorDepth.Depth8Bit;
+            ilDelete.ImageStream = (ImageListStreamer)resources.GetObject("ilDelete.ImageStream");
+            ilDelete.TransparentColor = Color.Transparent;
+            ilDelete.Images.SetKeyName(0, "Delete-x.png");
+            // 
             // CreateRole
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -193,7 +187,6 @@
             Text = "CreateRole";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvPermission).EndInit();
             ResumeLayout(false);
         }
 
@@ -202,14 +195,14 @@
         private Panel panel1;
         private TextBox txtRoleName;
         private Button btnAddPermission;
-        private DataGridView dgvPermission;
         private Label label1;
         private ComboBox cbPermission;
         private Label label2;
         private CheckBox cbDelete;
         private CheckBox cbUpdate;
         private CheckBox cbAdd;
-        private DataGridViewImageColumn DeleteColum;
         private Button btnCreateRole;
+        private ImageList ilDelete;
+        private ListBox lbPermissions;
     }
 }
