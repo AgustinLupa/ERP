@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemERP.Controller;
 using SystemERP.Model;
-using SystemERP.View.ModelView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SystemERP.View
@@ -48,7 +47,10 @@ namespace SystemERP.View
                 List<Permissions> auxpermissions = permissions.ToList();
                 if (roleXPermission.AddPermissionToList(auxpermissions[cbPermission.SelectedIndex].Id, cbAdd.Checked, cbDelete.Checked, cbUpdate.Checked))
                 {
-                    var viewpermi = auxpermissions[cbPermission.SelectedIndex].Description;
+                    var viewpermi = auxpermissions[cbPermission.SelectedIndex].Description + " | Agregar: " +
+                        (cbAdd.Checked ? "Habilitado" : "Deshabilitado") + "| Editar: " +
+                        (cbUpdate.Checked ? "Habilitado" : "Deshabilitado") + "| Eliminar: " +
+                        (cbDelete.Checked ? "Habilitado" : "Deshabilitado") + "|";
                     if (auxpermissions[cbPermission.SelectedIndex].Id == 1)
                     {
                         lbPermissions.Items.Clear();
@@ -98,7 +100,7 @@ namespace SystemERP.View
                 {
                     MessageBox.Show("No selecciono almenos un permiso para el rol", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
             this.Enabled = true;
         }
@@ -117,7 +119,8 @@ namespace SystemERP.View
                 e.Graphics.DrawImage(image, e.Bounds.Left, e.Bounds.Top);
 
                 e.Graphics.DrawString(item.Text, e.Font, Brushes.Black, e.Bounds.Left + image.Width, e.Bounds.Top);
-            }
+
+            }            
 
             e.DrawFocusRectangle();
         }
@@ -144,7 +147,8 @@ namespace SystemERP.View
                 cbAdd.Checked = false; cbAdd.Enabled = true;
                 cbDelete.Checked = false; cbDelete.Enabled = true;
                 cbUpdate.Checked = false; cbUpdate.Enabled = true;
-            }else if (auxpermissions[cbPermission.SelectedIndex].Id == 1)
+            }
+            else if (auxpermissions[cbPermission.SelectedIndex].Id == 1)
             {
                 cbAdd.Checked = true; cbAdd.Enabled = false;
                 cbDelete.Checked = true; cbDelete.Enabled = false;

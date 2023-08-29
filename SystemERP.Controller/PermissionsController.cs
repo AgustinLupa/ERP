@@ -11,7 +11,8 @@ namespace SystemERP.Controller
     public class PermissionsController
     {
         PermissionsData data = new PermissionsData();
-        List<Permissions> permissions = new List<Permissions>();        
+        List<Permissions> permissions = new List<Permissions>();
+        List<Permissions> activeListPermi = new List<Permissions>();
         public int CreatePermission(string descripcion)
         {
             if (string.IsNullOrEmpty(descripcion))
@@ -46,12 +47,10 @@ namespace SystemERP.Controller
             return data.GetAll();
         }
         
-        public bool AddPermissionToList(string description)
-        {
-            if (string.IsNullOrEmpty(description))
-                return false; 
-            if(!permissions.Any(item => item.Description == description)){
-                permissions.Add(new Permissions() { Description = description});
+        public bool AddPermissionToList(Permissions permission)
+        {            
+            if(!permissions.Any(item => item.Description == permission.Description)){
+                permissions.Add(permission);
                 return true;
             }
             else
@@ -68,6 +67,21 @@ namespace SystemERP.Controller
         public void RemoveToListById(int id)
         {
             permissions.RemoveAt(id);
+        }
+
+        public void ClearListAux()
+        {
+            permissions.Clear();
+        }
+
+        public void SetList()
+        {
+            activeListPermi = GetAll().ToList();
+        }
+
+        public List<Permissions> GetList()
+        {
+            return activeListPermi;
         }
     }
 }
