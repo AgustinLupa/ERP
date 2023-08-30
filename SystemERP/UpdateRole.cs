@@ -33,6 +33,10 @@ namespace SystemERP.View
             {
                 lbRole.Items.Add(item.Name);
             }
+            foreach (var item in this.permissionsController.GetList())
+            {
+                cbPermission.Items.Add(item.ToString());
+            }
         }
 
         private void lbRole_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,10 +89,15 @@ namespace SystemERP.View
 
             if (e.X <= imageWidth)
             {
+
                 if (lbPermissions.SelectedIndex >= 0)
                 {
-                    permissionsController.RemoveToListById(lbPermissions.SelectedIndex);
-                    lbPermissions.Items.RemoveAt(lbPermissions.SelectedIndex);
+                    DialogResult result = MessageBox.Show("¿Desea Eliminar el permiso seleccionado?", "Eliminar permiso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        permissionsController.RemoveToListById(lbPermissions.SelectedIndex);
+                        lbPermissions.Items.RemoveAt(lbPermissions.SelectedIndex);
+                    }
                 }
             }
         }
@@ -125,7 +134,6 @@ namespace SystemERP.View
                     else
                         MessageBox.Show("Ya se encuentra agregado ese elemento a la lista", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
             }
         }
     }

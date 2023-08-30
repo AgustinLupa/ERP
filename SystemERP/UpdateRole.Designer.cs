@@ -153,6 +153,7 @@
             btnAddPermission.TabIndex = 16;
             btnAddPermission.Text = "Agregar Permiso";
             btnAddPermission.UseVisualStyleBackColor = true;
+            btnAddPermission.Click += btnAddPermission_Click;
             // 
             // label1
             // 
