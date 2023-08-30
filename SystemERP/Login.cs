@@ -43,7 +43,7 @@ namespace SystemERP
         private void txtPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {               
+            {
                 e.SuppressKeyPress = true;
                 e.Handled = true;
                 btnLogin.PerformClick();

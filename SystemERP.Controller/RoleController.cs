@@ -11,6 +11,8 @@ namespace SystemERP.Controller
     public class RoleController
     {
         private readonly RoleData data = new RoleData();
+        private List<Role> roles = new List<Role>();
+        private Role role;
         public IEnumerable<Role> GetAll()
         {
             return data.GetAll();      
@@ -49,6 +51,23 @@ namespace SystemERP.Controller
             }
             return data.GetById(id);
         }
+
+        public void SetRoles()
+        {
+            roles = GetAll().ToList();
+            roles.OrderByDescending(item => item.Name);
+        }
+
+        public List<Role> GetRoles()
+        {
+            return roles;
+        }
+        
+        public Role SelectRole(int id)
+        {
+            return roles[id];
+        }
+
 
     }
 }

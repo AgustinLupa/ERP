@@ -27,12 +27,13 @@ namespace SystemERP.View
             userControl.SetRoleActive(roleController.GetByID(userControl.GetUserActive().Id_Role));
             User userActive = userControl.GetUserActive();
 
-
-            if (userActive.Role.Name == "admin")
+            foreach (var item in userActive.Role.RolePermissions)
             {
-                btnTurnOver.Visible = true;
-            }
-
+                if(item.Permission.Description == "Admin")
+                {
+                    btnTurnOver.Visible = true;                    
+                }
+            }            
         }
 
         private void Menu_KeyPress(object sender, KeyPressEventArgs e)
@@ -84,9 +85,9 @@ namespace SystemERP.View
             }
             else
             {
-                e.Cancel = false;                
-            }            
-            
+                e.Cancel = false;
+            }
+
         }
     }
 }
