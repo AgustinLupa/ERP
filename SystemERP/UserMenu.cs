@@ -23,7 +23,7 @@ namespace SystemERP.View
         {
             usercontroller = user;
             roleController = role;
-            roles = role.GetActiveRole();
+            roles = role.GetActiveRoles();
             InitializeComponent();
         }
 

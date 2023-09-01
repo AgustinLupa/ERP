@@ -45,11 +45,11 @@ namespace SystemERP.View
             if (lbRole.SelectedIndex != -1)
             {
                 var role = roleControl.SelectRole(lbRole.SelectedIndex);
-
+                roleControl.SetRoleActive(role);
                 txtRoleName.Text = role.Name;
                 permissionsController.ClearListAux();
                 foreach (var item in role.RolePermissions)
-                {                    
+                {
                     permissionsController.AddPermissionToList(item.Permission);
                     var viewpermi = item.Permission.Description + " | Agregar: " +
                         (item.Add == 1 ? "Habilitado" : "Deshabilitado") + "| Editar: " +
@@ -132,6 +132,25 @@ namespace SystemERP.View
                     else
                         MessageBox.Show("Ya se encuentra agregado ese elemento a la lista", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private void btnUpdateRole_Click(object sender, EventArgs e)
+        {
+            if (lbPermissions.Items.Count > 0)
+            {
+                var role = roleControl.GetRoleActive();
+                if (roleControl.UpdateRole(role.Id, txtRoleName.Text, role.State))
+                {
+                    /*if ()
+                    {
+
+                    }*/
+                }
+            }
+            else
+            {
+                MessageBox.Show("No posee ningun permiso asignado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
