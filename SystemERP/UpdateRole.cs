@@ -47,9 +47,9 @@ namespace SystemERP.View
                 var role = roleControl.SelectRole(lbRole.SelectedIndex);
 
                 txtRoleName.Text = role.Name;
+                permissionsController.ClearListAux();
                 foreach (var item in role.RolePermissions)
-                {
-                    permissionsController.ClearListAux();
+                {                    
                     permissionsController.AddPermissionToList(item.Permission);
                     var viewpermi = item.Permission.Description + " | Agregar: " +
                         (item.Add == 1 ? "Habilitado" : "Deshabilitado") + "| Editar: " +
@@ -57,9 +57,7 @@ namespace SystemERP.View
                         (item.Remove == 1 ? "Habilitado" : "Deshabilitado") + "|";
                     lbPermissions.Items.Add(new ListViewItem(viewpermi, "defaultImage"));
                     cbAdd.Checked = false; cbDelete.Checked = false; cbUpdate.Checked = false;
-
                 }
-
             }
         }
 

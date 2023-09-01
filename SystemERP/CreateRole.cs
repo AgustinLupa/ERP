@@ -120,7 +120,7 @@ namespace SystemERP.View
 
                 e.Graphics.DrawString(item.Text, e.Font, Brushes.Black, e.Bounds.Left + image.Width, e.Bounds.Top);
 
-            }            
+            }
 
             e.DrawFocusRectangle();
         }
