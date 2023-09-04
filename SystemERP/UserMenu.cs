@@ -70,7 +70,7 @@ namespace SystemERP.View
                 createRole.FormBorderStyle = FormBorderStyle.None;
                 createRole.Dock = DockStyle.Fill;
 
-                pformCreate.Controls.Add (createRole);
+                pformCreate.Controls.Add(createRole);
                 createRole.Show();
             }
             else

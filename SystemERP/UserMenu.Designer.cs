@@ -31,13 +31,12 @@
             label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
+            rbUpdateRole = new RadioButton();
+            rbCreateRole = new RadioButton();
             rbDelete = new RadioButton();
             rbEdit = new RadioButton();
             rbCreate = new RadioButton();
             pformCreate = new Panel();
-            rbCreateRole = new RadioButton();
-            rbUpdateRole = new RadioButton();
-            rbDeleteRole = new RadioButton();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -65,7 +64,6 @@
             // panel2
             // 
             panel2.BackColor = Color.SteelBlue;
-            panel2.Controls.Add(rbDeleteRole);
             panel2.Controls.Add(rbUpdateRole);
             panel2.Controls.Add(rbCreateRole);
             panel2.Controls.Add(rbDelete);
@@ -76,6 +74,30 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(112, 473);
             panel2.TabIndex = 2;
+            // 
+            // rbUpdateRole
+            // 
+            rbUpdateRole.AutoSize = true;
+            rbUpdateRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbUpdateRole.Location = new Point(3, 190);
+            rbUpdateRole.Name = "rbUpdateRole";
+            rbUpdateRole.Size = new Size(109, 21);
+            rbUpdateRole.TabIndex = 4;
+            rbUpdateRole.Text = "Modificar Rol";
+            rbUpdateRole.UseVisualStyleBackColor = true;
+            rbUpdateRole.CheckedChanged += rbEdit_CheckedChanged;
+            // 
+            // rbCreateRole
+            // 
+            rbCreateRole.AutoSize = true;
+            rbCreateRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            rbCreateRole.Location = new Point(3, 150);
+            rbCreateRole.Name = "rbCreateRole";
+            rbCreateRole.Size = new Size(82, 21);
+            rbCreateRole.TabIndex = 3;
+            rbCreateRole.Text = "Crear Rol";
+            rbCreateRole.UseVisualStyleBackColor = true;
+            rbCreateRole.CheckedChanged += rbEdit_CheckedChanged;
             // 
             // rbDelete
             // 
@@ -121,41 +143,6 @@
             pformCreate.Size = new Size(565, 473);
             pformCreate.TabIndex = 3;
             // 
-            // rbCreateRole
-            // 
-            rbCreateRole.AutoSize = true;
-            rbCreateRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            rbCreateRole.Location = new Point(3, 150);
-            rbCreateRole.Name = "rbCreateRole";
-            rbCreateRole.Size = new Size(82, 21);
-            rbCreateRole.TabIndex = 3;
-            rbCreateRole.Text = "Crear Rol";
-            rbCreateRole.UseVisualStyleBackColor = true;
-            rbCreateRole.CheckedChanged += rbEdit_CheckedChanged;
-            // 
-            // rbUpdateRole
-            // 
-            rbUpdateRole.AutoSize = true;
-            rbUpdateRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            rbUpdateRole.Location = new Point(3, 190);
-            rbUpdateRole.Name = "rbUpdateRole";
-            rbUpdateRole.Size = new Size(109, 21);
-            rbUpdateRole.TabIndex = 4;
-            rbUpdateRole.Text = "Modificar Rol";
-            rbUpdateRole.UseVisualStyleBackColor = true;
-            rbUpdateRole.CheckedChanged += rbEdit_CheckedChanged;
-            // 
-            // rbDeleteRole
-            // 
-            rbDeleteRole.AutoSize = true;
-            rbDeleteRole.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            rbDeleteRole.Location = new Point(3, 230);
-            rbDeleteRole.Name = "rbDeleteRole";
-            rbDeleteRole.Size = new Size(101, 21);
-            rbDeleteRole.TabIndex = 5;
-            rbDeleteRole.Text = "Eliminar Rol";
-            rbDeleteRole.UseVisualStyleBackColor = true;
-            // 
             // UserMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -187,6 +174,5 @@
         private Panel pformCreate;
         private RadioButton rbUpdateRole;
         private RadioButton rbCreateRole;
-        private RadioButton rbDeleteRole;
     }
 }
