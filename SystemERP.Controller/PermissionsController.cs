@@ -79,6 +79,11 @@ namespace SystemERP.Controller
             activeListPermi = GetAll().ToList();
         }
 
+        public void SetList(List<Permissions> permi)
+        {
+            activeListPermi = permi.ToList();
+        }
+
         public List<Permissions> GetList()
         {
             return activeListPermi;

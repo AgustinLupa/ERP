@@ -32,7 +32,7 @@
             label3 = new Label();
             lbRole = new ListBox();
             lbPermissions = new ListBox();
-            btnCreateRole = new Button();
+            btnUpdateRole = new Button();
             cbDelete = new CheckBox();
             cbUpdate = new CheckBox();
             cbAdd = new CheckBox();
@@ -50,7 +50,7 @@
             panel1.Controls.Add(label3);
             panel1.Controls.Add(lbRole);
             panel1.Controls.Add(lbPermissions);
-            panel1.Controls.Add(btnCreateRole);
+            panel1.Controls.Add(btnUpdateRole);
             panel1.Controls.Add(cbDelete);
             panel1.Controls.Add(cbUpdate);
             panel1.Controls.Add(cbAdd);
@@ -101,15 +101,16 @@
             lbPermissions.MouseClick += lbPermissions_MouseClick;
             lbPermissions.DrawItem += lbPermissions_DrawItem;
             // 
-            // btnCreateRole
+            // btnUpdateRole
             // 
-            btnCreateRole.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCreateRole.Location = new Point(417, 423);
-            btnCreateRole.Name = "btnCreateRole";
-            btnCreateRole.Size = new Size(120, 47);
-            btnCreateRole.TabIndex = 17;
-            btnCreateRole.Text = "Modificar Rol";
-            btnCreateRole.UseVisualStyleBackColor = true;
+            btnUpdateRole.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateRole.Location = new Point(417, 423);
+            btnUpdateRole.Name = "btnUpdateRole";
+            btnUpdateRole.Size = new Size(120, 47);
+            btnUpdateRole.TabIndex = 17;
+            btnUpdateRole.Text = "Modificar Rol";
+            btnUpdateRole.UseVisualStyleBackColor = true;
+            btnUpdateRole.Click += btnUpdateRole_Click;
             // 
             // cbDelete
             // 
@@ -212,7 +213,7 @@
         private Label label3;
         private ListBox lbRole;
         private ListBox lbPermissions;
-        private Button btnCreateRole;
+        private Button btnUpdateRole;
         private CheckBox cbDelete;
         private CheckBox cbUpdate;
         private CheckBox cbAdd;

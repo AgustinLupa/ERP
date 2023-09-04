@@ -33,7 +33,7 @@ namespace SystemERP.Controller
             return data.DeleteRole(role);
         }
 
-        public IEnumerable<Role> GetActiveRole()
+        public IEnumerable<Role> GetActiveRoles()
         {
             return data.GetActiveRole();
         }
@@ -68,6 +68,28 @@ namespace SystemERP.Controller
             return roles[id];
         }
 
+        public void SetRoleActive(Role role)
+        {
+            this.role = role;
+        }
 
+        public Role GetRoleActive()
+        {
+            return role;
+        }
+
+        public bool UpdateRole(int id,string name, int state)
+        {
+            if(string.IsNullOrEmpty(name))
+            {
+                return false;
+            }
+            Role role = new Role() {
+                Id = id,
+                Name = name,
+                State = state
+            };
+            return data.UpdateRole(role);
+        }
     }
 }

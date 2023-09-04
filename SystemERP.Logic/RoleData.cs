@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -214,6 +215,28 @@ namespace SystemERP.Data
                     Role role = new Role();
                     return role;
                 }
+            }
+        }
+
+        public bool UpdateRole(Role role)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = "UPDATE roles SET name=@Name,state=@State WHERE id = @Id";
+                    var result = connection.Execute(mysql, role);
+                    if (result > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                catch (Exception)
+                {
+                    return false;
+                } finally { connection.Close(); }
             }
         }
     }
