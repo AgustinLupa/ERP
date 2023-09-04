@@ -228,6 +228,7 @@
             ControlBox = false;
             Controls.Add(pMenu);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Menu";

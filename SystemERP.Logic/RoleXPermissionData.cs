@@ -22,7 +22,7 @@ namespace SystemERP.Data
                     connection.Open();
                     var insertQuery = @"
                         INSERT INTO rolesxpermissions (`id_role`, `id_permissions`, `add`, `remove`, `edit`)
-                        VALUES (@Id_Role, @Id_Permissions, @Add, @Remove, @Edit);"
+                        VALUES (@Id_Role, @Id_Permission, @Add, @Remove, @Edit);"
                     ;
 
                     var result = connection.Execute(insertQuery, roleXPermissions);

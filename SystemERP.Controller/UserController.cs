@@ -39,8 +39,7 @@ namespace SystemERP.Controller
             {
                 return true;
             }
-            return false;
-            
+            return false;            
         }
 
         public bool CompareKey(string key)

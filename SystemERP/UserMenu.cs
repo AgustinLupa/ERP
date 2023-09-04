@@ -16,12 +16,14 @@ namespace SystemERP.View
     {
         public UserController usercontroller;
         public RoleController roleController;
+        public PermissionsController permissionsController = new PermissionsController();
+        public RoleXPermissionController roleXPermissionController = new();
         IEnumerable<Role> roles;
         public UserMenu(UserController user, RoleController role)
         {
             usercontroller = user;
             roleController = role;
-            roles = role.GetActiveRole();
+            roles = role.GetActiveRoles();
             InitializeComponent();
         }
 
@@ -72,6 +74,17 @@ namespace SystemERP.View
 
                 pformCreate.Controls.Add(createRole);
                 createRole.Show();
+            }
+            else if (rbUpdateRole.Checked)
+            {
+                pformCreate.Visible = true;
+                UpdateRole updateRole = new UpdateRole(usercontroller, roleController, permissionsController, roleXPermissionController);
+                updateRole.TopLevel = false;
+                updateRole.FormBorderStyle = FormBorderStyle.None;
+                updateRole.Dock = DockStyle.Fill;
+
+                pformCreate.Controls.Add(updateRole);
+                updateRole.Show();
             }
             else
             {

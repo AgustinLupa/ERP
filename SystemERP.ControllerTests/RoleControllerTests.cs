@@ -49,7 +49,7 @@ namespace SystemERP.Controller.Tests
 
             // Act
             var actualResult = 3;
-            var result = data.GetActiveRole();
+            var result = data.GetActiveRoles();
 
             // Assert
             Assert.AreEqual(result.Count(), actualResult);

@@ -1,6 +1,6 @@
 ﻿namespace SystemERP.View
 {
-    partial class CreateRole
+    partial class UpdateRole
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateRole));
             panel1 = new Panel();
+            label3 = new Label();
+            lbRole = new ListBox();
             lbPermissions = new ListBox();
-            btnCreateRole = new Button();
+            btnUpdateRole = new Button();
             cbDelete = new CheckBox();
             cbUpdate = new CheckBox();
             cbAdd = new CheckBox();
@@ -41,15 +41,16 @@
             cbPermission = new ComboBox();
             label2 = new Label();
             txtRoleName = new TextBox();
-            ilDelete = new ImageList(components);
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(lbRole);
             panel1.Controls.Add(lbPermissions);
-            panel1.Controls.Add(btnCreateRole);
+            panel1.Controls.Add(btnUpdateRole);
             panel1.Controls.Add(cbDelete);
             panel1.Controls.Add(cbUpdate);
             panel1.Controls.Add(cbAdd);
@@ -64,6 +65,28 @@
             panel1.Size = new Size(565, 473);
             panel1.TabIndex = 0;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(27, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(216, 21);
+            label3.TabIndex = 20;
+            label3.Text = "Seleccione el rol a modificar";
+            // 
+            // lbRole
+            // 
+            lbRole.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbRole.FormattingEnabled = true;
+            lbRole.HorizontalScrollbar = true;
+            lbRole.ItemHeight = 21;
+            lbRole.Location = new Point(27, 33);
+            lbRole.Name = "lbRole";
+            lbRole.Size = new Size(510, 88);
+            lbRole.TabIndex = 19;
+            lbRole.SelectedIndexChanged += lbRole_SelectedIndexChanged;
+            // 
             // lbPermissions
             // 
             lbPermissions.DrawMode = DrawMode.OwnerDrawVariable;
@@ -71,32 +94,32 @@
             lbPermissions.FormattingEnabled = true;
             lbPermissions.HorizontalScrollbar = true;
             lbPermissions.ItemHeight = 17;
-            lbPermissions.Location = new Point(38, 177);
+            lbPermissions.Location = new Point(35, 313);
             lbPermissions.Name = "lbPermissions";
-            lbPermissions.Size = new Size(502, 225);
-            lbPermissions.TabIndex = 8;
+            lbPermissions.Size = new Size(502, 106);
+            lbPermissions.TabIndex = 18;
             lbPermissions.MouseClick += lbPermissions_MouseClick;
             lbPermissions.DrawItem += lbPermissions_DrawItem;
             // 
-            // btnCreateRole
+            // btnUpdateRole
             // 
-            btnCreateRole.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCreateRole.Location = new Point(436, 414);
-            btnCreateRole.Name = "btnCreateRole";
-            btnCreateRole.Size = new Size(104, 47);
-            btnCreateRole.TabIndex = 7;
-            btnCreateRole.Text = "Crear Rol";
-            btnCreateRole.UseVisualStyleBackColor = true;
-            btnCreateRole.Click += btnCreateRole_Click;
+            btnUpdateRole.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateRole.Location = new Point(417, 423);
+            btnUpdateRole.Name = "btnUpdateRole";
+            btnUpdateRole.Size = new Size(120, 47);
+            btnUpdateRole.TabIndex = 17;
+            btnUpdateRole.Text = "Modificar Rol";
+            btnUpdateRole.UseVisualStyleBackColor = true;
+            btnUpdateRole.Click += btnUpdateRole_Click;
             // 
             // cbDelete
             // 
             cbDelete.AutoSize = true;
             cbDelete.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            cbDelete.Location = new Point(255, 122);
+            cbDelete.Location = new Point(252, 266);
             cbDelete.Name = "cbDelete";
             cbDelete.Size = new Size(84, 24);
-            cbDelete.TabIndex = 5;
+            cbDelete.TabIndex = 15;
             cbDelete.Text = "Eliminar";
             cbDelete.UseVisualStyleBackColor = true;
             // 
@@ -104,10 +127,10 @@
             // 
             cbUpdate.AutoSize = true;
             cbUpdate.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            cbUpdate.Location = new Point(139, 122);
+            cbUpdate.Location = new Point(136, 266);
             cbUpdate.Name = "cbUpdate";
             cbUpdate.Size = new Size(94, 24);
-            cbUpdate.TabIndex = 4;
+            cbUpdate.TabIndex = 14;
             cbUpdate.Text = "Modificar";
             cbUpdate.UseVisualStyleBackColor = true;
             // 
@@ -115,20 +138,20 @@
             // 
             cbAdd.AutoSize = true;
             cbAdd.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            cbAdd.Location = new Point(38, 122);
+            cbAdd.Location = new Point(35, 266);
             cbAdd.Name = "cbAdd";
             cbAdd.Size = new Size(84, 24);
-            cbAdd.TabIndex = 3;
+            cbAdd.TabIndex = 12;
             cbAdd.Text = "Agregar";
             cbAdd.UseVisualStyleBackColor = true;
             // 
             // btnAddPermission
             // 
             btnAddPermission.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnAddPermission.Location = new Point(402, 122);
+            btnAddPermission.Location = new Point(399, 266);
             btnAddPermission.Name = "btnAddPermission";
             btnAddPermission.Size = new Size(138, 37);
-            btnAddPermission.TabIndex = 6;
+            btnAddPermission.TabIndex = 16;
             btnAddPermission.Text = "Agregar Permiso";
             btnAddPermission.UseVisualStyleBackColor = true;
             btnAddPermission.Click += btnAddPermission_Click;
@@ -137,56 +160,48 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(30, 74);
+            label1.Location = new Point(27, 218);
             label1.Name = "label1";
             label1.Size = new Size(151, 21);
-            label1.TabIndex = 3;
+            label1.TabIndex = 13;
             label1.Text = "Seleccione Permiso";
             // 
             // cbPermission
             // 
             cbPermission.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             cbPermission.FormattingEnabled = true;
-            cbPermission.Location = new Point(187, 72);
+            cbPermission.Location = new Point(184, 216);
             cbPermission.Name = "cbPermission";
             cbPermission.Size = new Size(242, 28);
-            cbPermission.TabIndex = 2;
-            cbPermission.SelectedIndexChanged += cbPermission_SelectedIndexChanged;
+            cbPermission.TabIndex = 11;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(30, 15);
+            label2.Location = new Point(27, 159);
             label2.Name = "label2";
             label2.Size = new Size(126, 21);
-            label2.TabIndex = 1;
+            label2.TabIndex = 9;
             label2.Text = "Nombre del Rol";
             // 
             // txtRoleName
             // 
             txtRoleName.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtRoleName.Location = new Point(162, 12);
+            txtRoleName.Location = new Point(159, 156);
             txtRoleName.Name = "txtRoleName";
             txtRoleName.Size = new Size(378, 29);
-            txtRoleName.TabIndex = 1;
+            txtRoleName.TabIndex = 10;
             // 
-            // ilDelete
-            // 
-            ilDelete.ColorDepth = ColorDepth.Depth8Bit;
-            ilDelete.ImageStream = (ImageListStreamer)resources.GetObject("ilDelete.ImageStream");
-            ilDelete.TransparentColor = Color.Transparent;
-            ilDelete.Images.SetKeyName(0, "Delete-x.png");
-            // 
-            // CreateRole
+            // UpdateRole
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(565, 473);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "CreateRole";
-            Text = "p;loooo09ooooooooooooooo";
+            Name = "UpdateRole";
+            Text = "UpdateRole";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -195,16 +210,17 @@
         #endregion
 
         private Panel panel1;
-        private TextBox txtRoleName;
+        private Label label3;
+        private ListBox lbRole;
+        private ListBox lbPermissions;
+        private Button btnUpdateRole;
+        private CheckBox cbDelete;
+        private CheckBox cbUpdate;
+        private CheckBox cbAdd;
         private Button btnAddPermission;
         private Label label1;
         private ComboBox cbPermission;
         private Label label2;
-        private CheckBox cbDelete;
-        private CheckBox cbUpdate;
-        private CheckBox cbAdd;
-        private Button btnCreateRole;
-        private ImageList ilDelete;
-        private ListBox lbPermissions;
+        private TextBox txtRoleName;
     }
 }
