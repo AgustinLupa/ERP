@@ -49,13 +49,13 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(btnCaja);
             panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnUser);
             panel1.Controls.Add(btnBank);
             panel1.Controls.Add(btnSales);
             panel1.Controls.Add(btnEmployee);
             panel1.Controls.Add(btnSupplier);
-            panel1.Controls.Add(btnCaja);
             panel1.Controls.Add(btnProduct);
             panel1.Controls.Add(btnTurnOver);
             panel1.Controls.Add(pictureBox1);
@@ -154,10 +154,10 @@
             btnCaja.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnCaja.Image = Properties.Resources.cash_register;
             btnCaja.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCaja.Location = new Point(3, 172);
+            btnCaja.Location = new Point(3, 123);
             btnCaja.Name = "btnCaja";
             btnCaja.Size = new Size(218, 49);
-            btnCaja.TabIndex = 3;
+            btnCaja.TabIndex = 2;
             btnCaja.Text = "Caja";
             btnCaja.UseVisualStyleBackColor = false;
             // 
@@ -167,10 +167,10 @@
             btnProduct.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnProduct.Image = Properties.Resources.package1;
             btnProduct.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProduct.Location = new Point(3, 123);
+            btnProduct.Location = new Point(3, 172);
             btnProduct.Name = "btnProduct";
             btnProduct.Size = new Size(218, 49);
-            btnProduct.TabIndex = 2;
+            btnProduct.TabIndex = 3;
             btnProduct.Text = "Productos";
             btnProduct.UseVisualStyleBackColor = false;
             // 

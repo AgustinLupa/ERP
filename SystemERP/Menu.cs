@@ -29,11 +29,11 @@ namespace SystemERP.View
 
             foreach (var item in userActive.Role.RolePermissions)
             {
-                if(item.Permission.Description == "Admin")
+                if (item.Permission.Description == "Admin")
                 {
-                    btnTurnOver.Visible = true;                    
+                    btnTurnOver.Visible = true;
                 }
-            }            
+            }
         }
 
         private void Menu_KeyPress(object sender, KeyPressEventArgs e)

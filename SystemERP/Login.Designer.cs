@@ -81,15 +81,12 @@
             txtPass.AcceptsTab = true;
             txtPass.BackColor = SystemColors.GradientActiveCaption;
             txtPass.BorderStyle = BorderStyle.FixedSingle;
-            txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPass.Location = new Point(194, 175);
+            txtPass.Font = new Font("Sans Serif Collection", 8.25F, FontStyle.Bold, GraphicsUnit.Point);
+            txtPass.Location = new Point(194, 173);
             txtPass.Name = "txtPass";
-            txtPass.PasswordChar = '*';
             txtPass.Size = new Size(207, 35);
-            txtPass.TabIndex = 3;
-            txtPass.TabStop = false;
+            txtPass.TabIndex = 2;
             txtPass.UseSystemPasswordChar = true;
-            txtPass.KeyDown += txtPass_KeyDown;
             // 
             // txtUser
             // 
