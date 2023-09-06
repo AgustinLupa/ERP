@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             panel1 = new Panel();
+            btnCashRegister = new Button();
             btnLogout = new Button();
             btnUser = new Button();
             btnBank = new Button();
             btnSales = new Button();
             btnEmployee = new Button();
             btnSupplier = new Button();
-            btnCaja = new Button();
             btnProduct = new Button();
             btnTurnOver = new Button();
             pictureBox1 = new PictureBox();
@@ -49,7 +49,7 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(btnCaja);
+            panel1.Controls.Add(btnCashRegister);
             panel1.Controls.Add(btnLogout);
             panel1.Controls.Add(btnUser);
             panel1.Controls.Add(btnBank);
@@ -67,6 +67,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(221, 561);
             panel1.TabIndex = 0;
+            // 
+            // btnCashRegister
+            // 
+            btnCashRegister.BackColor = SystemColors.Menu;
+            btnCashRegister.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCashRegister.Image = Properties.Resources.cash_register;
+            btnCashRegister.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCashRegister.Location = new Point(3, 123);
+            btnCashRegister.Name = "btnCashRegister";
+            btnCashRegister.Size = new Size(218, 49);
+            btnCashRegister.TabIndex = 2;
+            btnCashRegister.Text = "Caja";
+            btnCashRegister.UseVisualStyleBackColor = false;
+            btnCashRegister.Click += btnCashRegister_Click;
             // 
             // btnLogout
             // 
@@ -147,19 +161,6 @@
             btnSupplier.TabIndex = 4;
             btnSupplier.Text = "Proveedores";
             btnSupplier.UseVisualStyleBackColor = false;
-            // 
-            // btnCaja
-            // 
-            btnCaja.BackColor = SystemColors.Menu;
-            btnCaja.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCaja.Image = Properties.Resources.cash_register;
-            btnCaja.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCaja.Location = new Point(3, 123);
-            btnCaja.Name = "btnCaja";
-            btnCaja.Size = new Size(218, 49);
-            btnCaja.TabIndex = 2;
-            btnCaja.Text = "Caja";
-            btnCaja.UseVisualStyleBackColor = false;
             // 
             // btnProduct
             // 
@@ -253,7 +254,7 @@
         private Button btnSales;
         private Button btnEmployee;
         private Button btnSupplier;
-        private Button btnCaja;
+        private Button btnCashRegister;
         private Button btnProduct;
         private Button btnLogout;
     }

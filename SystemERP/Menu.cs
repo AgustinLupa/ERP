@@ -89,5 +89,10 @@ namespace SystemERP.View
             }
 
         }
+
+        private void btnCashRegister_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
