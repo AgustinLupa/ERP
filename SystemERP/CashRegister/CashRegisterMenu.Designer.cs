@@ -1,4 +1,4 @@
-﻿namespace SystemERP.View.CashRegisterMenu
+﻿namespace SystemERP.View
 {
     partial class CashRegisterMenu
     {
@@ -29,38 +29,39 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label1 = new Label();
+            pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            button2 = new Button();
             btnAddPurchase = new Button();
             button1 = new Button();
             btnCloseResgister = new Button();
             btnOperRegister = new Button();
             btnNewSale = new Button();
             panel3 = new Panel();
-            button2 = new Button();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(677, 49);
-            panel1.TabIndex = 2;
+            panel1.Size = new Size(693, 49);
+            panel1.TabIndex = 5;
             // 
-            // label1
+            // pictureBox1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(365, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(62, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Caja";
+            pictureBox1.BackgroundImage = Properties.Resources.Caja_titulo1;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(312, -25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(148, 92);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -74,8 +75,22 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 49);
             panel2.Name = "panel2";
-            panel2.Size = new Size(147, 473);
-            panel2.TabIndex = 3;
+            panel2.Size = new Size(147, 512);
+            panel2.TabIndex = 6;
+            // 
+            // button2
+            // 
+            button2.Enabled = false;
+            button2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button2.Image = Properties.Resources.Gasto1;
+            button2.ImageAlign = ContentAlignment.MiddleLeft;
+            button2.Location = new Point(0, 204);
+            button2.Name = "button2";
+            button2.Size = new Size(147, 40);
+            button2.TabIndex = 11;
+            button2.Text = "Nuevo gasto";
+            button2.TextAlign = ContentAlignment.MiddleRight;
+            button2.UseVisualStyleBackColor = true;
             // 
             // btnAddPurchase
             // 
@@ -101,7 +116,7 @@
             button1.Name = "button1";
             button1.Size = new Size(147, 40);
             button1.TabIndex = 9;
-            button1.Text = "Listado ventas";
+            button1.Text = "Mostrar listado";
             button1.TextAlign = ContentAlignment.MiddleRight;
             button1.UseVisualStyleBackColor = true;
             // 
@@ -111,7 +126,7 @@
             btnCloseResgister.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnCloseResgister.Image = Properties.Resources.close_padlock;
             btnCloseResgister.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCloseResgister.Location = new Point(0, 301);
+            btnCloseResgister.Location = new Point(0, 342);
             btnCloseResgister.Name = "btnCloseResgister";
             btnCloseResgister.Size = new Size(147, 40);
             btnCloseResgister.TabIndex = 8;
@@ -152,53 +167,36 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(147, 49);
             panel3.Name = "panel3";
-            panel3.Size = new Size(530, 473);
-            panel3.TabIndex = 4;
+            panel3.Size = new Size(546, 512);
+            panel3.TabIndex = 7;
             // 
-            // button2
+            // CashRegister
             // 
-            button2.Enabled = false;
-            button2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            button2.Image = Properties.Resources.Gasto1;
-            button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 204);
-            button2.Name = "button2";
-            button2.Size = new Size(147, 40);
-            button2.TabIndex = 11;
-            button2.Text = "Nuevo gasto";
-            button2.TextAlign = ContentAlignment.MiddleRight;
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // CashRegisterMenu
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(677, 522);
+            ClientSize = new Size(693, 561);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "CashRegisterMenu";
-            Text = "CashRegisterMenu";
+            Name = "CashRegister";
+            Text = "CashRegister";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
         private Panel panel1;
-        private Label label1;
+        private PictureBox pictureBox1;
         private Panel panel2;
-        private Button btnNewSale;
-        private Panel panel3;
+        private Button button2;
         private Button btnAddPurchase;
         private Button button1;
         private Button btnCloseResgister;
         private Button btnOperRegister;
-        private Button button2;
+        private Button btnNewSale;
+        private Panel panel3;
     }
 }

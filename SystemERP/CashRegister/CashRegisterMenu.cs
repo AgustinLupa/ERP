@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SystemERP.View.CashRegisterMenu
+namespace SystemERP.View
 {
     public partial class CashRegisterMenu : Form
     {

@@ -92,7 +92,15 @@ namespace SystemERP.View
 
         private void btnCashRegister_Click(object sender, EventArgs e)
         {
+            // Crear una instancia del formulario hijo
+            var cashRegisterMenu = new CashRegisterMenu();
 
+            // Asignar el formulario hijo como hijo del panel
+            cashRegisterMenu.TopLevel = false;
+            pMenu.Controls.Clear(); // Limpiar el panel antes de agregar el nuevo formulario
+            pMenu.Controls.Add(cashRegisterMenu);
+            cashRegisterMenu.Dock = DockStyle.Fill;
+            cashRegisterMenu.Show();
         }
     }
 }
