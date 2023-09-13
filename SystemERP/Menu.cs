@@ -101,6 +101,7 @@ namespace SystemERP.View
             pMenu.Controls.Add(cashRegisterMenu);
             cashRegisterMenu.Dock = DockStyle.Fill;
             cashRegisterMenu.Show();
+            cashRegisterMenu.FirstElementFocus();
         }
     }
 }

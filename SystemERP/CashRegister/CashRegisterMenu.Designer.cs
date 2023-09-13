@@ -31,11 +31,12 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            button3 = new Button();
             button2 = new Button();
             btnAddPurchase = new Button();
             button1 = new Button();
             btnCloseResgister = new Button();
-            btnOperRegister = new Button();
+            btnOpenRegister = new Button();
             btnNewSale = new Button();
             panel3 = new Panel();
             panel1.SuspendLayout();
@@ -66,11 +67,12 @@
             // panel2
             // 
             panel2.BackColor = Color.SteelBlue;
+            panel2.Controls.Add(button3);
             panel2.Controls.Add(button2);
             panel2.Controls.Add(btnAddPurchase);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(btnCloseResgister);
-            panel2.Controls.Add(btnOperRegister);
+            panel2.Controls.Add(btnOpenRegister);
             panel2.Controls.Add(btnNewSale);
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 49);
@@ -78,13 +80,27 @@
             panel2.Size = new Size(147, 512);
             panel2.TabIndex = 6;
             // 
+            // button3
+            // 
+            button3.Enabled = false;
+            button3.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button3.Image = Properties.Resources.atrasado2;
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(0, 320);
+            button3.Name = "button3";
+            button3.Size = new Size(147, 40);
+            button3.TabIndex = 12;
+            button3.Text = "Nuevo deuda";
+            button3.TextAlign = ContentAlignment.MiddleRight;
+            button3.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
             button2.Enabled = false;
             button2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             button2.Image = Properties.Resources.Gasto1;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(0, 204);
+            button2.Location = new Point(0, 260);
             button2.Name = "button2";
             button2.Size = new Size(147, 40);
             button2.TabIndex = 11;
@@ -98,7 +114,7 @@
             btnAddPurchase.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnAddPurchase.Image = Properties.Resources.bolsa_de_la_compra;
             btnAddPurchase.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAddPurchase.Location = new Point(0, 158);
+            btnAddPurchase.Location = new Point(0, 200);
             btnAddPurchase.Name = "btnAddPurchase";
             btnAddPurchase.Size = new Size(147, 40);
             btnAddPurchase.TabIndex = 10;
@@ -112,7 +128,7 @@
             button1.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.Image = Properties.Resources.lista_de_verificacion1;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(0, 112);
+            button1.Location = new Point(0, 140);
             button1.Name = "button1";
             button1.Size = new Size(147, 40);
             button1.TabIndex = 9;
@@ -126,7 +142,7 @@
             btnCloseResgister.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnCloseResgister.Image = Properties.Resources.close_padlock;
             btnCloseResgister.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCloseResgister.Location = new Point(0, 342);
+            btnCloseResgister.Location = new Point(0, 380);
             btnCloseResgister.Name = "btnCloseResgister";
             btnCloseResgister.Size = new Size(147, 40);
             btnCloseResgister.TabIndex = 8;
@@ -134,18 +150,18 @@
             btnCloseResgister.TextAlign = ContentAlignment.MiddleRight;
             btnCloseResgister.UseVisualStyleBackColor = true;
             // 
-            // btnOperRegister
+            // btnOpenRegister
             // 
-            btnOperRegister.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnOperRegister.Image = Properties.Resources.desbloquear1;
-            btnOperRegister.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOperRegister.Location = new Point(0, 20);
-            btnOperRegister.Name = "btnOperRegister";
-            btnOperRegister.Size = new Size(147, 40);
-            btnOperRegister.TabIndex = 7;
-            btnOperRegister.Text = "Abrir Caja";
-            btnOperRegister.TextAlign = ContentAlignment.MiddleRight;
-            btnOperRegister.UseVisualStyleBackColor = true;
+            btnOpenRegister.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnOpenRegister.Image = Properties.Resources.desbloquear1;
+            btnOpenRegister.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOpenRegister.Location = new Point(0, 20);
+            btnOpenRegister.Name = "btnOpenRegister";
+            btnOpenRegister.Size = new Size(147, 40);
+            btnOpenRegister.TabIndex = 7;
+            btnOpenRegister.Text = "Abrir Caja";
+            btnOpenRegister.TextAlign = ContentAlignment.MiddleRight;
+            btnOpenRegister.UseVisualStyleBackColor = true;
             // 
             // btnNewSale
             // 
@@ -153,7 +169,7 @@
             btnNewSale.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnNewSale.Image = Properties.Resources.carrito;
             btnNewSale.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNewSale.Location = new Point(0, 66);
+            btnNewSale.Location = new Point(0, 80);
             btnNewSale.Name = "btnNewSale";
             btnNewSale.Size = new Size(147, 40);
             btnNewSale.TabIndex = 5;
@@ -170,7 +186,7 @@
             panel3.Size = new Size(546, 512);
             panel3.TabIndex = 7;
             // 
-            // CashRegister
+            // CashRegisterMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -179,7 +195,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "CashRegister";
+            Name = "CashRegisterMenu";
             Text = "CashRegister";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -195,8 +211,9 @@
         private Button btnAddPurchase;
         private Button button1;
         private Button btnCloseResgister;
-        private Button btnOperRegister;
+        private Button btnOpenRegister;
         private Button btnNewSale;
         private Panel panel3;
+        private Button button3;
     }
 }

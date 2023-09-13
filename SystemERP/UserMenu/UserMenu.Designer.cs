@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             panel1 = new Panel();
             panel2 = new Panel();
             rbUpdateRole = new RadioButton();
@@ -37,24 +36,16 @@
             rbEdit = new RadioButton();
             rbCreate = new RadioButton();
             pformCreate = new Panel();
+            pictureBox1 = new PictureBox();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(272, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(113, 32);
-            label1.TabIndex = 0;
-            label1.Text = "Usuarios";
             // 
             // panel1
             // 
             panel1.BackColor = Color.SteelBlue;
-            panel1.Controls.Add(label1);
+            panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
@@ -143,6 +134,16 @@
             pformCreate.Size = new Size(565, 473);
             pformCreate.TabIndex = 3;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.User;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(253, -24);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(243, 92);
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
+            // 
             // UserMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -157,15 +158,13 @@
             Name = "UserMenu";
             Text = "Usuarios";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Label label1;
         private Panel panel1;
         private Panel panel2;
         private RadioButton rbDelete;
@@ -174,5 +173,6 @@
         private Panel pformCreate;
         private RadioButton rbUpdateRole;
         private RadioButton rbCreateRole;
+        private PictureBox pictureBox1;
     }
 }

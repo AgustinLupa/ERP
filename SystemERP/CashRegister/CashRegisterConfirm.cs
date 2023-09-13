@@ -8,17 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SystemERP.View
+namespace SystemERP.View.CashRegister
 {
-    public partial class CashRegisterMenu : Form
+    public partial class CashRegisterConfirm : Form
     {
-        public CashRegisterMenu()
+        public CashRegisterConfirm()
         {
             InitializeComponent();
-        }
-
-        public void FirstElementFocus() {
-            btnOpenRegister.Focus();
         }
     }
 }
