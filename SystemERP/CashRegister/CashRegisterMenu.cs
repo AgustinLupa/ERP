@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemERP.View.CashRegister;
 
 namespace SystemERP.View
 {
@@ -17,8 +18,20 @@ namespace SystemERP.View
             InitializeComponent();
         }
 
-        public void FirstElementFocus() {
+        public void FirstElementFocus()
+        {
             btnOpenRegister.Focus();
+        }
+
+        private void btnOpenRegister_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            CashRegisterConfirm cashRegisterConfirm = new CashRegisterConfirm();
+            if(DialogResult.OK == cashRegisterConfirm.ShowDialog())
+            {
+
+            }
+
         }
     }
 }

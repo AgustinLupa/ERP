@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SystemERP.Model
 {
-    internal class Employee
+    public class Employee
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public int State { get; set; }
     }
 }

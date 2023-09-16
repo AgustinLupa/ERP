@@ -89,7 +89,7 @@
             button3.Location = new Point(0, 320);
             button3.Name = "button3";
             button3.Size = new Size(147, 40);
-            button3.TabIndex = 12;
+            button3.TabIndex = 6;
             button3.Text = "Nuevo deuda";
             button3.TextAlign = ContentAlignment.MiddleRight;
             button3.UseVisualStyleBackColor = true;
@@ -103,7 +103,7 @@
             button2.Location = new Point(0, 260);
             button2.Name = "button2";
             button2.Size = new Size(147, 40);
-            button2.TabIndex = 11;
+            button2.TabIndex = 5;
             button2.Text = "Nuevo gasto";
             button2.TextAlign = ContentAlignment.MiddleRight;
             button2.UseVisualStyleBackColor = true;
@@ -117,7 +117,7 @@
             btnAddPurchase.Location = new Point(0, 200);
             btnAddPurchase.Name = "btnAddPurchase";
             btnAddPurchase.Size = new Size(147, 40);
-            btnAddPurchase.TabIndex = 10;
+            btnAddPurchase.TabIndex = 4;
             btnAddPurchase.Text = "Nueva compra";
             btnAddPurchase.TextAlign = ContentAlignment.MiddleRight;
             btnAddPurchase.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             button1.Location = new Point(0, 140);
             button1.Name = "button1";
             button1.Size = new Size(147, 40);
-            button1.TabIndex = 9;
+            button1.TabIndex = 3;
             button1.Text = "Mostrar listado";
             button1.TextAlign = ContentAlignment.MiddleRight;
             button1.UseVisualStyleBackColor = true;
@@ -145,7 +145,7 @@
             btnCloseResgister.Location = new Point(0, 380);
             btnCloseResgister.Name = "btnCloseResgister";
             btnCloseResgister.Size = new Size(147, 40);
-            btnCloseResgister.TabIndex = 8;
+            btnCloseResgister.TabIndex = 7;
             btnCloseResgister.Text = "Cerrar Caja";
             btnCloseResgister.TextAlign = ContentAlignment.MiddleRight;
             btnCloseResgister.UseVisualStyleBackColor = true;
@@ -158,10 +158,11 @@
             btnOpenRegister.Location = new Point(0, 20);
             btnOpenRegister.Name = "btnOpenRegister";
             btnOpenRegister.Size = new Size(147, 40);
-            btnOpenRegister.TabIndex = 7;
+            btnOpenRegister.TabIndex = 1;
             btnOpenRegister.Text = "Abrir Caja";
             btnOpenRegister.TextAlign = ContentAlignment.MiddleRight;
             btnOpenRegister.UseVisualStyleBackColor = true;
+            btnOpenRegister.Click += btnOpenRegister_Click;
             // 
             // btnNewSale
             // 
@@ -172,7 +173,7 @@
             btnNewSale.Location = new Point(0, 80);
             btnNewSale.Name = "btnNewSale";
             btnNewSale.Size = new Size(147, 40);
-            btnNewSale.TabIndex = 5;
+            btnNewSale.TabIndex = 2;
             btnNewSale.Text = "Nueva venta";
             btnNewSale.TextAlign = ContentAlignment.MiddleRight;
             btnNewSale.UseVisualStyleBackColor = true;
