@@ -12,5 +12,7 @@ namespace SystemERP.Model
         public string Name { get; set; }
         public string LastName { get; set; }
         public int State { get; set; }
+        public int Dni { get; set; }
+        public int Code_Employee { get; set; }
     }
 }
