@@ -163,6 +163,16 @@ namespace SystemERP.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap deleteEmployee {
+            get {
+                object obj = ResourceManager.GetObject("deleteEmployee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap desbloquear {
             get {
                 object obj = ResourceManager.GetObject("desbloquear", resourceCulture);
@@ -236,6 +246,36 @@ namespace SystemERP.View.Properties {
         internal static System.Drawing.Bitmap lista_de_verificacion1 {
             get {
                 object obj = ResourceManager.GetObject("lista-de-verificacion1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap listEmployee {
+            get {
+                object obj = ResourceManager.GetObject("listEmployee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap listEmployee1 {
+            get {
+                object obj = ResourceManager.GetObject("listEmployee1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NewEmployee {
+            get {
+                object obj = ResourceManager.GetObject("NewEmployee", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

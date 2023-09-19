@@ -38,5 +38,16 @@ namespace SystemERP.Controller
             this.employees = GetAll();
         }
 
+        public Employee GetByCode(int code)
+        {
+            if (code <=0)
+                return 0;
+            return data.GetByCode(code);
+        }
+
+        public IEnumerable<Employee> GetActive()
+        {
+            return data.GetActiveEmployee();
+        }
     }
 }

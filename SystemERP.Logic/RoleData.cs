@@ -65,7 +65,7 @@ namespace SystemERP.Data
                     var insertQuery = @"
                         INSERT INTO roles (name)
                         VALUES (@Name);
-                        SELECT LAST_INSERT_ID();";
+                        SELECT CAST(SCOPE_IDENTITY() as int);";
 
                     int roleId = connection.QueryFirstOrDefault<int>(insertQuery, role);
                     connection.Close();
