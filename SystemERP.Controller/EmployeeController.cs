@@ -33,7 +33,7 @@ namespace SystemERP.Controller
             return data.GetAll();
         }
 
-        public void SetEmployee()
+        public void SetListEmployee()
         {
             this.employees = GetAll();
         }
@@ -41,7 +41,7 @@ namespace SystemERP.Controller
         public Employee GetByCode(int code)
         {
             if (code <=0)
-                return 0;
+                return new Employee();
             return data.GetByCode(code);
         }
 

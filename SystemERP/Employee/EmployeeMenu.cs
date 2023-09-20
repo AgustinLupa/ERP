@@ -16,5 +16,10 @@ namespace SystemERP.View.Employee
         {
             InitializeComponent();
         }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

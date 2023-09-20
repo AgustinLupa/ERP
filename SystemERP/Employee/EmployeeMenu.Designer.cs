@@ -28,12 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "EmployeeMenu";
+            panel1 = new Panel();
+            pictureBox1 = new PictureBox();
+            panel2 = new Panel();
+            btnDeleteEmployee = new Button();
+            btnCreateEmployee = new Button();
+            btnEmployee = new Button();
+            pMenu = new Panel();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel2.SuspendLayout();
+            SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.SteelBlue;
+            panel1.Controls.Add(pictureBox1);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(693, 49);
+            panel1.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackgroundImage = Properties.Resources.Caja_titulo1;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
+            pictureBox1.Location = new Point(312, -25);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(148, 92);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.SteelBlue;
+            panel2.Controls.Add(btnDeleteEmployee);
+            panel2.Controls.Add(btnCreateEmployee);
+            panel2.Controls.Add(btnEmployee);
+            panel2.Dock = DockStyle.Left;
+            panel2.Location = new Point(0, 49);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(147, 512);
+            panel2.TabIndex = 7;
+            // 
+            // btnDeleteEmployee
+            // 
+            btnDeleteEmployee.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnDeleteEmployee.Image = Properties.Resources.deleteEmployee;
+            btnDeleteEmployee.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDeleteEmployee.Location = new Point(3, 145);
+            btnDeleteEmployee.Name = "btnDeleteEmployee";
+            btnDeleteEmployee.Size = new Size(147, 40);
+            btnDeleteEmployee.TabIndex = 3;
+            btnDeleteEmployee.Text = "Eliminar";
+            btnDeleteEmployee.TextAlign = ContentAlignment.MiddleRight;
+            btnDeleteEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnCreateEmployee
+            // 
+            btnCreateEmployee.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCreateEmployee.Image = Properties.Resources.NewEmployee;
+            btnCreateEmployee.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCreateEmployee.Location = new Point(0, 82);
+            btnCreateEmployee.Name = "btnCreateEmployee";
+            btnCreateEmployee.Size = new Size(147, 40);
+            btnCreateEmployee.TabIndex = 2;
+            btnCreateEmployee.Text = "Crear";
+            btnCreateEmployee.TextAlign = ContentAlignment.MiddleRight;
+            btnCreateEmployee.UseVisualStyleBackColor = true;
+            // 
+            // btnEmployee
+            // 
+            btnEmployee.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEmployee.Image = Properties.Resources.listEmployee1;
+            btnEmployee.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEmployee.Location = new Point(0, 20);
+            btnEmployee.Name = "btnEmployee";
+            btnEmployee.Size = new Size(147, 40);
+            btnEmployee.TabIndex = 1;
+            btnEmployee.Text = "Empleados";
+            btnEmployee.TextAlign = ContentAlignment.MiddleRight;
+            btnEmployee.UseVisualStyleBackColor = true;
+            btnEmployee.Click += btnEmployee_Click;
+            // 
+            // pMenu
+            // 
+            pMenu.BackColor = SystemColors.GradientActiveCaption;
+            pMenu.Dock = DockStyle.Fill;
+            pMenu.Location = new Point(147, 49);
+            pMenu.Name = "pMenu";
+            pMenu.Size = new Size(546, 512);
+            pMenu.TabIndex = 8;
+            // 
+            // EmployeeMenu
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(693, 561);
+            Controls.Add(pMenu);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
+            Name = "EmployeeMenu";
+            Text = "EmployeeMenu";
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel2.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Panel panel2;
+        private Button btnEmployee;
+        private Panel pMenu;
+        private Button btnDeleteEmployee;
+        private Button btnCreateEmployee;
     }
 }
