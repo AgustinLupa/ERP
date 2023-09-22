@@ -148,6 +148,7 @@
             btnEmployee.TabIndex = 5;
             btnEmployee.Text = "Empleados";
             btnEmployee.UseVisualStyleBackColor = false;
+            btnEmployee.Click += btnEmployee_Click;
             // 
             // btnSupplier
             // 

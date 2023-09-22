@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemERP.Controller;
 using SystemERP.Model;
+using SystemERP.View.Employee;
 
 namespace SystemERP.View
 {
@@ -102,6 +103,19 @@ namespace SystemERP.View
             cashRegisterMenu.Dock = DockStyle.Fill;
             cashRegisterMenu.Show();
             cashRegisterMenu.FirstElementFocus();
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario hijo
+            var employeeMenu = new EmployeeMenu();
+
+            // Asignar el formulario hijo como hijo del panel
+            employeeMenu.TopLevel = false;
+            pMenu.Controls.Clear(); // Limpiar el panel antes de agregar el nuevo formulario
+            pMenu.Controls.Add(employeeMenu);
+            employeeMenu.Dock = DockStyle.Fill;
+            employeeMenu.Show();
         }
     }
 }
