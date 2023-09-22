@@ -35,6 +35,7 @@
             btnCreateEmployee = new Button();
             btnEmployee = new Button();
             pMenu = new Panel();
+            btnUpdateEmplo = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -52,17 +53,18 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.BackgroundImage = Properties.Resources.Caja_titulo1;
+            pictureBox1.BackgroundImage = Properties.Resources.employee;
             pictureBox1.BackgroundImageLayout = ImageLayout.Stretch;
-            pictureBox1.Location = new Point(312, -25);
+            pictureBox1.Location = new Point(286, -26);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(148, 92);
+            pictureBox1.Size = new Size(262, 92);
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
             // 
             // panel2
             // 
             panel2.BackColor = Color.SteelBlue;
+            panel2.Controls.Add(btnUpdateEmplo);
             panel2.Controls.Add(btnDeleteEmployee);
             panel2.Controls.Add(btnCreateEmployee);
             panel2.Controls.Add(btnEmployee);
@@ -77,7 +79,7 @@
             btnDeleteEmployee.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             btnDeleteEmployee.Image = Properties.Resources.deleteEmployee;
             btnDeleteEmployee.ImageAlign = ContentAlignment.MiddleLeft;
-            btnDeleteEmployee.Location = new Point(3, 145);
+            btnDeleteEmployee.Location = new Point(0, 146);
             btnDeleteEmployee.Name = "btnDeleteEmployee";
             btnDeleteEmployee.Size = new Size(147, 40);
             btnDeleteEmployee.TabIndex = 3;
@@ -107,7 +109,7 @@
             btnEmployee.Name = "btnEmployee";
             btnEmployee.Size = new Size(147, 40);
             btnEmployee.TabIndex = 1;
-            btnEmployee.Text = "Empleados";
+            btnEmployee.Text = "Listar";
             btnEmployee.TextAlign = ContentAlignment.MiddleRight;
             btnEmployee.UseVisualStyleBackColor = true;
             btnEmployee.Click += btnEmployee_Click;
@@ -121,6 +123,19 @@
             pMenu.Size = new Size(546, 512);
             pMenu.TabIndex = 8;
             // 
+            // btnUpdateEmplo
+            // 
+            btnUpdateEmplo.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateEmplo.Image = Properties.Resources.editar;
+            btnUpdateEmplo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUpdateEmplo.Location = new Point(0, 208);
+            btnUpdateEmplo.Name = "btnUpdateEmplo";
+            btnUpdateEmplo.Size = new Size(147, 40);
+            btnUpdateEmplo.TabIndex = 4;
+            btnUpdateEmplo.Text = "Modificar";
+            btnUpdateEmplo.TextAlign = ContentAlignment.MiddleRight;
+            btnUpdateEmplo.UseVisualStyleBackColor = true;
+            // 
             // EmployeeMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -131,7 +146,6 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EmployeeMenu";
-            Text = "EmployeeMenu";
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
@@ -147,5 +161,6 @@
         private Panel pMenu;
         private Button btnDeleteEmployee;
         private Button btnCreateEmployee;
+        private Button btnUpdateEmplo;
     }
 }
