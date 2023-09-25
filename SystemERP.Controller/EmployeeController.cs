@@ -49,5 +49,10 @@ namespace SystemERP.Controller
         {
             return data.GetActiveEmployee();
         }
+
+        public Employee GetEmployeeByName(string name)
+        {
+
+        }
     }
 }
