@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            pform = new Panel();
             label2 = new Label();
             cbFilter = new ComboBox();
             lbEmployee = new ListBox();
-            textBox1 = new TextBox();
+            txtEmployee = new TextBox();
             label1 = new Label();
-            panel1.SuspendLayout();
+            pform.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // pform
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(cbFilter);
-            panel1.Controls.Add(lbEmployee);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(546, 512);
-            panel1.TabIndex = 0;
+            pform.BackColor = SystemColors.ActiveCaption;
+            pform.Controls.Add(label2);
+            pform.Controls.Add(cbFilter);
+            pform.Controls.Add(lbEmployee);
+            pform.Controls.Add(txtEmployee);
+            pform.Controls.Add(label1);
+            pform.Dock = DockStyle.Fill;
+            pform.Location = new Point(0, 0);
+            pform.Name = "pform";
+            pform.Size = new Size(546, 512);
+            pform.TabIndex = 0;
             // 
             // label2
             // 
@@ -70,6 +70,7 @@
             cbFilter.Name = "cbFilter";
             cbFilter.Size = new Size(175, 29);
             cbFilter.TabIndex = 3;
+            cbFilter.SelectedIndexChanged += cbFilter_SelectedIndexChanged;
             // 
             // lbEmployee
             // 
@@ -80,14 +81,15 @@
             lbEmployee.Size = new Size(481, 349);
             lbEmployee.TabIndex = 2;
             // 
-            // textBox1
+            // txtEmployee
             // 
-            textBox1.Enabled = false;
-            textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox1.Location = new Point(201, 65);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(318, 29);
-            textBox1.TabIndex = 1;
+            txtEmployee.Enabled = false;
+            txtEmployee.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            txtEmployee.Location = new Point(201, 65);
+            txtEmployee.Name = "txtEmployee";
+            txtEmployee.Size = new Size(318, 29);
+            txtEmployee.TabIndex = 1;
+            txtEmployee.TextChanged += txtEmployee_TextChanged;
             // 
             // label1
             // 
@@ -104,22 +106,22 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(546, 512);
-            Controls.Add(panel1);
+            Controls.Add(pform);
             FormBorderStyle = FormBorderStyle.None;
             Name = "EmployeeList";
             Text = "EmployeeList";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pform.ResumeLayout(false);
+            pform.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
+        private Panel pform;
         private Label label2;
         private ComboBox cbFilter;
         private ListBox lbEmployee;
-        private TextBox textBox1;
+        private TextBox txtEmployee;
         private Label label1;
     }
 }

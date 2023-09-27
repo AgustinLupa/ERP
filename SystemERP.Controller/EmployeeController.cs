@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace SystemERP.Controller
     {
         private EmployeeData data = new EmployeeData();
         private IEnumerable<Employee> employees = new List<Employee>();
+
 
         public int CreateEmployee(string name, string lastname, int dni, int code_employee)
         {
@@ -50,9 +52,29 @@ namespace SystemERP.Controller
             return data.GetActiveEmployee();
         }
 
-        public Employee GetEmployeeByName(string name)
-        {
+        //public Employee GetEmployeeByName(string name)
+        //{
 
+        //}
+
+        public IEnumerable<Employee> FilterList(string filterType, string filterText)
+        {            
+                    
+            if (filterType == "NOMBRE")
+            {
+                var filteredEmployee = employees
+                .Where(employee => employee.Name.IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .Select(employee => employee);
+                return filteredEmployee;
+            }
+            
+
+            return employees;
+        }
+
+        public IEnumerable<Employee> GetListActive()
+        {
+            return this.employees;
         }
     }
 }
