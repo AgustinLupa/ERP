@@ -67,7 +67,20 @@ namespace SystemERP.Controller
                 .Select(employee => employee);
                 return filteredEmployee;
             }
-            
+            if (filterType == "DNI")
+            {
+                var filteredEmployee = employees
+                .Where(employee => Convert.ToString(employee.Dni).IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .Select(employee => employee);
+                return filteredEmployee;
+            }
+            if(filterType == "APELLIDO")
+            {
+                var filteredEmployee = employees
+                .Where(employee => employee.LastName.IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .Select(employee => employee);
+                return filteredEmployee;
+            }
 
             return employees;
         }

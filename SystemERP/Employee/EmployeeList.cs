@@ -46,7 +46,6 @@ namespace SystemERP.View.Employee
             {
                 txtEmployee.Enabled = false;
             }
-
         }
     }
 }
