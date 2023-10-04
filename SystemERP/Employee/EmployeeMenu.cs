@@ -30,5 +30,15 @@ namespace SystemERP.View.Employee
             pMenu.Controls.Add(employeeList);
             employeeList.Show();
         }
+
+        private void btnCreateEmployee_Click(object sender, EventArgs e)
+        {
+            EmployeeCreate employeeCreate = new EmployeeCreate(controller);
+            employeeCreate.TopLevel = false;
+            employeeCreate.FormBorderStyle = FormBorderStyle.None;
+            employeeCreate.Dock = DockStyle.Fill;
+            pMenu.Controls.Add(employeeCreate);
+            employeeCreate.Show();
+        }
     }
 }

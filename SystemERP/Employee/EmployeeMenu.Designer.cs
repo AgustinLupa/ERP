@@ -31,11 +31,11 @@
             panel1 = new Panel();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
+            btnUpdateEmplo = new Button();
             btnDeleteEmployee = new Button();
             btnCreateEmployee = new Button();
             btnEmployee = new Button();
             pMenu = new Panel();
-            btnUpdateEmplo = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -74,6 +74,19 @@
             panel2.Size = new Size(147, 512);
             panel2.TabIndex = 7;
             // 
+            // btnUpdateEmplo
+            // 
+            btnUpdateEmplo.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnUpdateEmplo.Image = Properties.Resources.editar;
+            btnUpdateEmplo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnUpdateEmplo.Location = new Point(0, 208);
+            btnUpdateEmplo.Name = "btnUpdateEmplo";
+            btnUpdateEmplo.Size = new Size(147, 40);
+            btnUpdateEmplo.TabIndex = 4;
+            btnUpdateEmplo.Text = "Modificar";
+            btnUpdateEmplo.TextAlign = ContentAlignment.MiddleRight;
+            btnUpdateEmplo.UseVisualStyleBackColor = true;
+            // 
             // btnDeleteEmployee
             // 
             btnDeleteEmployee.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -99,6 +112,7 @@
             btnCreateEmployee.Text = "Crear";
             btnCreateEmployee.TextAlign = ContentAlignment.MiddleRight;
             btnCreateEmployee.UseVisualStyleBackColor = true;
+            btnCreateEmployee.Click += btnCreateEmployee_Click;
             // 
             // btnEmployee
             // 
@@ -122,19 +136,6 @@
             pMenu.Name = "pMenu";
             pMenu.Size = new Size(546, 512);
             pMenu.TabIndex = 8;
-            // 
-            // btnUpdateEmplo
-            // 
-            btnUpdateEmplo.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnUpdateEmplo.Image = Properties.Resources.editar;
-            btnUpdateEmplo.ImageAlign = ContentAlignment.MiddleLeft;
-            btnUpdateEmplo.Location = new Point(0, 208);
-            btnUpdateEmplo.Name = "btnUpdateEmplo";
-            btnUpdateEmplo.Size = new Size(147, 40);
-            btnUpdateEmplo.TabIndex = 4;
-            btnUpdateEmplo.Text = "Modificar";
-            btnUpdateEmplo.TextAlign = ContentAlignment.MiddleRight;
-            btnUpdateEmplo.UseVisualStyleBackColor = true;
             // 
             // EmployeeMenu
             // 

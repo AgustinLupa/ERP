@@ -163,6 +163,16 @@ namespace SystemERP.View.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Danger {
+            get {
+                object obj = ResourceManager.GetObject("Danger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap deleteEmployee {
             get {
                 object obj = ResourceManager.GetObject("deleteEmployee", resourceCulture);
@@ -296,6 +306,16 @@ namespace SystemERP.View.Properties {
         internal static System.Drawing.Bitmap NewEmployee {
             get {
                 object obj = ResourceManager.GetObject("NewEmployee", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ok {
+            get {
+                object obj = ResourceManager.GetObject("ok", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

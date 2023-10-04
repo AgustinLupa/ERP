@@ -16,6 +16,6 @@ namespace SystemERP.Utils
             Regex regex = new Regex(pattern);
             
             return regex.IsMatch(input);
-        }
+        }        
     }
 }

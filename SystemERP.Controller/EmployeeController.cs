@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemERP.Data;
 using SystemERP.Model;
+using SystemERP.Utils;
 
 namespace SystemERP.Controller
 {
@@ -17,10 +18,15 @@ namespace SystemERP.Controller
 
         public int CreateEmployee(string name, string lastname, int dni, int code_employee)
         {
-            if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastname) || dni <= 10000000)
+            if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastname) || dni <= 10000000 || code_employee ==0)
             {
                 return 0;
-            }           
+            }
+            if(SpecialCharacters.ContainsSpecialCharacters(name) || SpecialCharacters.ContainsSpecialCharacters(lastname))
+            {
+                return 0;
+            }
+
             Employee employee = new Employee() {
                 Code_Employee = code_employee,
                 Name = name.ToUpper(),
@@ -88,6 +94,11 @@ namespace SystemERP.Controller
         public IEnumerable<Employee> GetListActive()
         {
             return this.employees;
+        }
+
+        public bool EmployeeActiveByCode(int code)
+        {
+            return employees.Any(e => e.Code_Employee == code);
         }
     }
 }
