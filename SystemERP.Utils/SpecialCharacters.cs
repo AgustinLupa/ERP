@@ -11,7 +11,7 @@ namespace SystemERP.Utils
     {
         public  static bool ContainsSpecialCharacters(string input)
         {
-            string pattern = @"^[a-zA-Z0-9]*$";
+            string pattern = @"^[a-zA-Z]*$";
            
             Regex regex = new Regex(pattern);
             

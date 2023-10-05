@@ -69,7 +69,7 @@
             // 
             lResult.AutoSize = true;
             lResult.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            lResult.Location = new Point(392, 169);
+            lResult.Location = new Point(392, 229);
             lResult.Name = "lResult";
             lResult.Size = new Size(43, 17);
             lResult.TabIndex = 12;
@@ -80,9 +80,9 @@
             // 
             pbVerifyCod.BackgroundImage = Properties.Resources.ok;
             pbVerifyCod.BackgroundImageLayout = ImageLayout.Stretch;
-            pbVerifyCod.Location = new Point(341, 165);
+            pbVerifyCod.Location = new Point(339, 225);
             pbVerifyCod.Name = "pbVerifyCod";
-            pbVerifyCod.Size = new Size(30, 29);
+            pbVerifyCod.Size = new Size(32, 29);
             pbVerifyCod.TabIndex = 11;
             pbVerifyCod.TabStop = false;
             pbVerifyCod.Visible = false;
@@ -90,10 +90,10 @@
             // mtbDni
             // 
             mtbDni.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            mtbDni.Location = new Point(202, 117);
+            mtbDni.Location = new Point(129, 177);
             mtbDni.Mask = "999999999";
             mtbDni.Name = "mtbDni";
-            mtbDni.Size = new Size(120, 29);
+            mtbDni.Size = new Size(144, 29);
             mtbDni.TabIndex = 10;
             mtbDni.TextAlign = HorizontalAlignment.Center;
             mtbDni.ValidatingType = typeof(int);
@@ -113,10 +113,10 @@
             // numCodEmplo
             // 
             numCodEmplo.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            numCodEmplo.Location = new Point(202, 162);
+            numCodEmplo.Location = new Point(200, 222);
             numCodEmplo.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numCodEmplo.Name = "numCodEmplo";
-            numCodEmplo.Size = new Size(120, 29);
+            numCodEmplo.Size = new Size(122, 29);
             numCodEmplo.TabIndex = 8;
             numCodEmplo.TextAlign = HorizontalAlignment.Center;
             numCodEmplo.ValueChanged += numCodEmplo_ValueChanged;
@@ -125,7 +125,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(52, 165);
+            label4.Location = new Point(51, 225);
             label4.Name = "label4";
             label4.Size = new Size(122, 21);
             label4.TabIndex = 7;
@@ -135,7 +135,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(103, 120);
+            label3.Location = new Point(52, 180);
             label3.Name = "label3";
             label3.Size = new Size(38, 21);
             label3.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(103, 65);
+            label2.Location = new Point(51, 125);
             label2.Name = "label2";
             label2.Size = new Size(72, 21);
             label2.TabIndex = 5;
@@ -155,7 +155,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(103, 15);
+            label1.Location = new Point(52, 75);
             label1.Name = "label1";
             label1.Size = new Size(71, 21);
             label1.TabIndex = 4;
@@ -164,17 +164,17 @@
             // txtLastName
             // 
             txtLastName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtLastName.Location = new Point(202, 62);
+            txtLastName.Location = new Point(129, 122);
             txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(312, 29);
+            txtLastName.Size = new Size(385, 29);
             txtLastName.TabIndex = 1;
             // 
             // txtName
             // 
             txtName.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txtName.Location = new Point(202, 12);
+            txtName.Location = new Point(129, 72);
             txtName.Name = "txtName";
-            txtName.Size = new Size(312, 29);
+            txtName.Size = new Size(385, 29);
             txtName.TabIndex = 0;
             // 
             // EmployeeCreate

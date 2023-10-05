@@ -18,13 +18,13 @@ namespace SystemERP.Controller.Tests
             // Arrange            
             EmployeeController data = new EmployeeController();
             Employee employee = new Employee() {
-                Name = "Mariano",
+                Name = "Mariano0",
                 LastName = "Guerra",
                 Dni = 40976845,
                 Code_Employee = 2
             };
             // Act
-            int actualResult = 1;
+            int actualResult = 0;
             var result = data.CreateEmployee(employee.Name, employee.LastName, employee.Dni, employee.Code_Employee);
 
             // Assert

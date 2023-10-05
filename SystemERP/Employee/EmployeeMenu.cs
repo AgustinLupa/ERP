@@ -22,8 +22,8 @@ namespace SystemERP.View.Employee
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            pMenu.Visible = true;
             EmployeeList employeeList = new EmployeeList(controller);
+            pMenu.Controls.Clear();
             employeeList.TopLevel = false;
             employeeList.FormBorderStyle = FormBorderStyle.None;
             employeeList.Dock = DockStyle.Fill;
@@ -33,6 +33,7 @@ namespace SystemERP.View.Employee
 
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
+            pMenu.Controls.Clear();
             EmployeeCreate employeeCreate = new EmployeeCreate(controller);
             employeeCreate.TopLevel = false;
             employeeCreate.FormBorderStyle = FormBorderStyle.None;

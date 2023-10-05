@@ -26,6 +26,7 @@ namespace SystemERP.View.Employee
             var result = controller.CreateEmployee(txtName.Text, txtLastName.Text, Convert.ToInt32(mtbDni.Text), Convert.ToInt32(numCodEmplo.Value));
             if (result > 0)
             {
+                controller.SetListEmployee();
                 MessageBox.Show("Empleado Creado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else

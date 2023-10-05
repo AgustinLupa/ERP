@@ -90,7 +90,27 @@ namespace SystemERP.Data
                     return 0;
                 }
             }
-        }        
+        }
+        
+        public int DeleteEmployee(Employee employee)
+        {
+            using (var connection = new MySqlConnection(Connection.Connec()))
+            {
+                try
+                {
+                    connection.Open();
+                    var mysql = @"Update employee Set state = 0 where(code_employee = @Code_Employee);";
+                    var result = connection.Execute(mysql, new {Code_Employee = employee.Code_Employee});
+                    connection.Close();
+                    return result;
+                }
+                catch (Exception)
+                {
+                    connection.Close();
+                    return 0;
+                }
+            }
+        }
 
     }
 }

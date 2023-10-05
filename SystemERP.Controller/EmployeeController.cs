@@ -22,7 +22,7 @@ namespace SystemERP.Controller
             {
                 return 0;
             }
-            if(SpecialCharacters.ContainsSpecialCharacters(name) || SpecialCharacters.ContainsSpecialCharacters(lastname))
+            if(!SpecialCharacters.ContainsSpecialCharacters(name) || !SpecialCharacters.ContainsSpecialCharacters(lastname))
             {
                 return 0;
             }
@@ -42,7 +42,7 @@ namespace SystemERP.Controller
         }
 
         public void SetListEmployee()
-        {
+        {            
             this.employees = GetAll();
         }
 
@@ -58,34 +58,44 @@ namespace SystemERP.Controller
             return data.GetActiveEmployee();
         }
 
-        //public Employee GetEmployeeByName(string name)
-        //{
+        private IEnumerable<Employee> GetEmployeeByName(string name)
+        {
+            var filteredEmployee = employees
+                .Where(employee => employee.Name.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0)
+                .Select(employee => employee);
+            return filteredEmployee;
+        }
 
-        //}
+        private IEnumerable<Employee> GetEmployeeByDNI(string dni)
+        {
+            var filteredEmployee = employees
+               .Where(employee => Convert.ToString(employee.Dni).IndexOf(dni, StringComparison.OrdinalIgnoreCase) >= 0)
+               .Select(employee => employee);
+            return filteredEmployee;
+        }
+
+        private IEnumerable<Employee> GetEmployeeByLastName(string lastName)
+        {
+            var filteredEmployee = employees
+                .Where(employee => employee.LastName.IndexOf(lastName, StringComparison.OrdinalIgnoreCase) >= 0)
+                .Select(employee => employee);
+            return filteredEmployee;
+        }
 
         public IEnumerable<Employee> FilterList(string filterType, string filterText)
         {            
                     
             if (filterType == "NOMBRE")
-            {
-                var filteredEmployee = employees
-                .Where(employee => employee.Name.IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
-                .Select(employee => employee);
-                return filteredEmployee;
+            {                
+                return GetEmployeeByName(filterText);
             }
             if (filterType == "DNI")
-            {
-                var filteredEmployee = employees
-                .Where(employee => Convert.ToString(employee.Dni).IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
-                .Select(employee => employee);
-                return filteredEmployee;
+            {                
+                return GetEmployeeByDNI(filterText);
             }
             if(filterType == "APELLIDO")
-            {
-                var filteredEmployee = employees
-                .Where(employee => employee.LastName.IndexOf(filterText, StringComparison.OrdinalIgnoreCase) >= 0)
-                .Select(employee => employee);
-                return filteredEmployee;
+            {                
+                return GetEmployeeByDNI(filterText);
             }
 
             return employees;
