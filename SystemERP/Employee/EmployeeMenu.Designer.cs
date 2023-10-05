@@ -99,6 +99,7 @@
             btnDeleteEmployee.Text = "Eliminar";
             btnDeleteEmployee.TextAlign = ContentAlignment.MiddleRight;
             btnDeleteEmployee.UseVisualStyleBackColor = true;
+            btnDeleteEmployee.Click += btnDeleteEmployee_Click;
             // 
             // btnCreateEmployee
             // 

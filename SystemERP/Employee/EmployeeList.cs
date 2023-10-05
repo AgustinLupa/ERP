@@ -19,12 +19,8 @@ namespace SystemERP.View.Employee
             InitializeComponent();
             employeeController = employee;
             lbEmployee.Items.Clear();
-            employeeController.SetListEmployee();
-            lbEmployee.Items.AddRange(employeeController.GetListActive().ToArray());
-            //foreach (var item in employeeController.GetListActive())
-            //{
-            //    lbEmployee.Items.Add(item);
-            //}
+            employeeController.SetListEmployee(employeeController.GetActive());
+            lbEmployee.Items.AddRange(employeeController.GetListActive().ToArray());            
         }
 
         private void txtEmployee_TextChanged(object sender, EventArgs e)

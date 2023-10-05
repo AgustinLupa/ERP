@@ -41,5 +41,16 @@ namespace SystemERP.View.Employee
             pMenu.Controls.Add(employeeCreate);
             employeeCreate.Show();
         }
+
+        private void btnDeleteEmployee_Click(object sender, EventArgs e)
+        {
+            pMenu.Controls.Clear();
+            EmployeeDelete employeeCreate = new EmployeeDelete(controller);
+            employeeCreate.TopLevel = false;
+            employeeCreate.FormBorderStyle = FormBorderStyle.None;
+            employeeCreate.Dock = DockStyle.Fill;
+            pMenu.Controls.Add(employeeCreate);
+            employeeCreate.Show();
+        }
     }
 }

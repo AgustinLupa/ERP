@@ -92,7 +92,7 @@ namespace SystemERP.Data
             }
         }
         
-        public int DeleteEmployee(Employee employee)
+        public int DeleteEmployee(Employee code_Employee)
         {
             using (var connection = new MySqlConnection(Connection.Connec()))
             {
@@ -100,7 +100,7 @@ namespace SystemERP.Data
                 {
                     connection.Open();
                     var mysql = @"Update employee Set state = 0 where(code_employee = @Code_Employee);";
-                    var result = connection.Execute(mysql, new {Code_Employee = employee.Code_Employee});
+                    var result = connection.Execute(mysql, code_Employee);
                     connection.Close();
                     return result;
                 }

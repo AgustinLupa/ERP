@@ -41,9 +41,9 @@ namespace SystemERP.Controller
             return data.GetAll();
         }
 
-        public void SetListEmployee()
+        public void SetListEmployee(IEnumerable<Employee> employees)
         {            
-            this.employees = GetAll();
+            this.employees = employees;
         }
 
         public Employee GetByCode(int code)
@@ -83,8 +83,7 @@ namespace SystemERP.Controller
         }
 
         public IEnumerable<Employee> FilterList(string filterType, string filterText)
-        {            
-                    
+        {                                
             if (filterType == "NOMBRE")
             {                
                 return GetEmployeeByName(filterText);
@@ -95,9 +94,8 @@ namespace SystemERP.Controller
             }
             if(filterType == "APELLIDO")
             {                
-                return GetEmployeeByDNI(filterText);
+                return GetEmployeeByLastName(filterText);
             }
-
             return employees;
         }
 
@@ -109,6 +107,16 @@ namespace SystemERP.Controller
         public bool EmployeeActiveByCode(int code)
         {
             return employees.Any(e => e.Code_Employee == code);
+        }
+
+        public bool DeleteEmployee(Employee code)
+        {
+            var result = data.DeleteEmployee(code);
+            if (result >0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

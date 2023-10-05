@@ -18,7 +18,7 @@ namespace SystemERP.View.Employee
         {
             InitializeComponent();
             controller = employeeController;
-            controller.SetListEmployee();
+            controller.SetListEmployee(controller.GetAll());
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace SystemERP.View.Employee
             var result = controller.CreateEmployee(txtName.Text, txtLastName.Text, Convert.ToInt32(mtbDni.Text), Convert.ToInt32(numCodEmplo.Value));
             if (result > 0)
             {
-                controller.SetListEmployee();
+                controller.SetListEmployee(controller.GetAll());
                 MessageBox.Show("Empleado Creado con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
@@ -57,15 +57,37 @@ namespace SystemERP.View.Employee
 
         private void mtbDni_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (Convert.ToInt32(mtbDni.Text) > 10000000)
+            if (mtbDni.Text.Length > 0)
             {
-                if (controller.FilterList("DNI", mtbDni.Text).Count() == 0)
+                if (int.TryParse(mtbDni.Text, out int valor))
                 {
-                    pbDni.Visible = true;
-                    lDni.Visible = true;
-                    lDni.Text = "disponible";
-                    pbDni.BackgroundImage = null;
-                    pbDni.BackgroundImage = Properties.Resources.ok;
+                    if (valor > 1000000)
+                    {
+                        if (controller.FilterList("DNI", mtbDni.Text).Count() == 0)
+                        {
+                            pbDni.Visible = true;
+                            lDni.Visible = true;
+                            lDni.Text = "disponible";
+                            pbDni.BackgroundImage = null;
+                            pbDni.BackgroundImage = Properties.Resources.ok;
+                        }
+                        else
+                        {
+                            pbDni.Visible = true;
+                            lDni.Visible = true;
+                            lDni.Text = "No disponible";
+                            pbDni.BackgroundImage = null;
+                            pbDni.BackgroundImage = Properties.Resources.Danger;
+                        }
+                    }
+                    else
+                    {
+                        pbDni.Visible = true;
+                        lDni.Visible = true;
+                        lDni.Text = "No disponible";
+                        pbDni.BackgroundImage = null;
+                        pbDni.BackgroundImage = Properties.Resources.Danger;
+                    }
                 }
                 else
                 {
