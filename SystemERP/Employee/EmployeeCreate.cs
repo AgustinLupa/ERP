@@ -54,5 +54,36 @@ namespace SystemERP.View.Employee
                 pbVerifyCod.BackgroundImage = Properties.Resources.ok;
             }
         }
+
+        private void mtbDni_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (Convert.ToInt32(mtbDni.Text) > 10000000)
+            {
+                if (controller.FilterList("DNI", mtbDni.Text).Count() == 0)
+                {
+                    pbDni.Visible = true;
+                    lDni.Visible = true;
+                    lDni.Text = "disponible";
+                    pbDni.BackgroundImage = null;
+                    pbDni.BackgroundImage = Properties.Resources.ok;
+                }
+                else
+                {
+                    pbDni.Visible = true;
+                    lDni.Visible = true;
+                    lDni.Text = "No disponible";
+                    pbDni.BackgroundImage = null;
+                    pbDni.BackgroundImage = Properties.Resources.Danger;
+                }
+            }
+            else
+            {
+                pbDni.Visible = true;
+                lDni.Visible = true;
+                lDni.Text = "No disponible";
+                pbDni.BackgroundImage = null;
+                pbDni.BackgroundImage = Properties.Resources.Danger;
+            }
+        }
     }
 }

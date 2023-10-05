@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            lDni = new Label();
+            pbDni = new PictureBox();
             lResult = new Label();
             pbVerifyCod = new PictureBox();
             mtbDni = new MaskedTextBox();
@@ -41,6 +43,7 @@
             txtLastName = new TextBox();
             txtName = new TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbDni).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbVerifyCod).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numCodEmplo).BeginInit();
             SuspendLayout();
@@ -48,6 +51,8 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(lDni);
+            panel1.Controls.Add(pbDni);
             panel1.Controls.Add(lResult);
             panel1.Controls.Add(pbVerifyCod);
             panel1.Controls.Add(mtbDni);
@@ -64,6 +69,28 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(546, 512);
             panel1.TabIndex = 0;
+            // 
+            // lDni
+            // 
+            lDni.AutoSize = true;
+            lDni.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            lDni.Location = new Point(343, 181);
+            lDni.Name = "lDni";
+            lDni.Size = new Size(43, 17);
+            lDni.TabIndex = 14;
+            lDni.Text = "label5";
+            lDni.Visible = false;
+            // 
+            // pbDni
+            // 
+            pbDni.BackgroundImage = Properties.Resources.ok;
+            pbDni.BackgroundImageLayout = ImageLayout.Stretch;
+            pbDni.Location = new Point(290, 177);
+            pbDni.Name = "pbDni";
+            pbDni.Size = new Size(32, 29);
+            pbDni.TabIndex = 13;
+            pbDni.TabStop = false;
+            pbDni.Visible = false;
             // 
             // lResult
             // 
@@ -97,6 +124,7 @@
             mtbDni.TabIndex = 10;
             mtbDni.TextAlign = HorizontalAlignment.Center;
             mtbDni.ValidatingType = typeof(int);
+            mtbDni.KeyPress += mtbDni_KeyPress;
             // 
             // btnCreate
             // 
@@ -188,6 +216,7 @@
             Text = "EmployeeCreate";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbDni).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbVerifyCod).EndInit();
             ((System.ComponentModel.ISupportInitialize)numCodEmplo).EndInit();
             ResumeLayout(false);
@@ -207,5 +236,7 @@
         private Label lResult;
         private PictureBox pbVerifyCod;
         private MaskedTextBox mtbDni;
+        private Label lDni;
+        private PictureBox pbDni;
     }
 }
