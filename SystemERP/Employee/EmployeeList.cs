@@ -20,7 +20,7 @@ namespace SystemERP.View.Employee
             employeeController = employee;
             lbEmployee.Items.Clear();
             employeeController.SetListEmployee(employeeController.GetAll());
-            lbEmployee.Items.AddRange(employeeController.GetAll().ToArray());            
+            lbEmployee.Items.AddRange(employeeController.GetAll().ToArray());
         }
 
         private void txtEmployee_TextChanged(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace SystemERP.View.Employee
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbFilter.SelectedIndex >= 0) 
+            if (cbFilter.SelectedIndex >= 0)
             {
                 txtEmployee.Enabled = true;
             }

@@ -39,7 +39,7 @@
             // 
             // pform
             // 
-            pform.BackColor = SystemColors.ActiveCaption;
+            pform.BackColor = SystemColors.GradientActiveCaption;
             pform.Controls.Add(label2);
             pform.Controls.Add(cbFilter);
             pform.Controls.Add(lbEmployee);
