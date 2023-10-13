@@ -19,7 +19,7 @@ namespace SystemERP.Data
                 try
                 {
                     connection.Open();
-                    var mysql = @"SELECT * FROM users WHERE((state = 1) and ((name = @Name) and (password = @Password)))";                   
+                    var mysql = @"SELECT name FROM users WHERE((state = 1) and ((name = @Name) and (password = @Password)))";                   
                     result = connection.Query<User>(mysql, user).FirstOrDefault();                   
                     connection.Close();
                     return result;               
